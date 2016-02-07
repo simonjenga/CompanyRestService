@@ -35,9 +35,9 @@ This will create a distributable and deployable WAR file for the web application
 
 This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute one of the following commands:
 
-```mvn clean package && mvn tomcat7:run-war```
+```mvn tomcat7:run-war```
 
-```mvn clean package -DskipTests=true -Dinvoker.skip=true && mvn tomcat7:run-war```
+```mvn tomcat7:run-war -DskipTests -Dinvoker.skip=true```
 
 This will create a distributable WAR file and deploy it in the embedded Tomcat Server.
 
