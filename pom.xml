@@ -284,6 +284,7 @@
                         <server>TomcatServer</server>
                         <path>/${project.artifactId}</path>
                     </configuration>
+                    <!-- http://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
