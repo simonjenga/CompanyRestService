@@ -25,13 +25,13 @@ Create a tiny client using a well know JavaScript framework e.g AngularJS, React
 Building The Project
 ====================
 
-The project compiles with ```JDK >= 1.5``` and ```Maven >= 3.1.1``` as the build tool and to also manage the project dependencies.
+This project compiles with ```JDK >= 1.5``` and uses ```Maven >= 3.1.1``` as the build tool and also to manage the project dependencies.
 
 To run Maven build, execute the following from a console/command prompt with the project root directory as the top level directory:
 
 ```mvn clean package```
 
-This will create a distributable and deployable WAR file for the web application. This file can be deployed on the latest versions of web servers/containers e. Jetty, Tomcat, JBoss etc
+This will create a distributable and deployable WAR file for the web application. This WAR file can be deployed on the latest versions of web servers/containers e.g Jetty, Tomcat, JBoss etc.
 
 This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute one of the following commands:
 
@@ -43,7 +43,7 @@ This will create a distributable WAR file and deploy it in the embedded Tomcat S
 
 To view the home page of this web application, open the URL: ```http://localhost:8080/CompanyRestService``` in a web browser.
 
-In order to interact with the REST web services using Git Bash execute the following:
+To interact with the RESTful web services using Git Bash, execute the following commands in succession:
 
 ```curl -X POST -H "Content-Type: application/json" -d '{ "name": "Felicity", "address": "Woodley", "city": "Berlin", "country": "Germany", "email": "software@engineer.com", "phoneNumber": "+49-234-090", "owner":[ { "name": "Blue" }, { "name": "Red" } ]}' http://localhost:8080/CompanyRestService/restservice/company```
 
@@ -55,7 +55,7 @@ In order to interact with the REST web services using Git Bash execute the follo
 
 ```curl -X GET -H "Content-type: application/json" http://localhost:8080/CompanyRestService/restservice/companies```
 
-To run the Unit tests in this project, execute the following:
+To run Unit tests in this project, execute the following:
 
 ```mvn clean test```
 
