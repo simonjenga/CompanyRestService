@@ -29,13 +29,13 @@ public class Owner implements DomainObject {
 
 	private static final long serialVersionUID = 8447967858999530733L;
 	
-	@TableGenerator(name = "ownerIdGen",
-			table = "id_gen", 
-			pkColumnName = "gen_key", 
-			valueColumnName = "gen_value", 
-			pkColumnValue = "id_owner", 
-			initialValue = 1, 
-			allocationSize = 1)
+    @TableGenerator(name = "ownerIdGen",
+        table = "id_gen", 
+        pkColumnName = "gen_key", 
+        valueColumnName = "gen_value", 
+        pkColumnValue = "id_owner", 
+        initialValue = 1, 
+        allocationSize = 1)
 			
 	@Id
 	@NotNull

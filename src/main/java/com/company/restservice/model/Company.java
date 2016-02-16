@@ -40,13 +40,13 @@ public class Company implements DomainObject {
 
 	private static final long serialVersionUID = -3155708942599043175L;
 
-	@TableGenerator(name = "companyIdGen", 
-			table = "id_gen",
-			pkColumnName = "gen_key", 
-			valueColumnName = "gen_value", 
-			pkColumnValue = "id_company", 
-			initialValue = 1, 
-			allocationSize = 1)
+    @TableGenerator(name = "companyIdGen", 
+        table = "id_gen",
+        pkColumnName = "gen_key", 
+        valueColumnName = "gen_value", 
+        pkColumnValue = "id_company", 
+        initialValue = 1, 
+        allocationSize = 1)
 			
 	@Id
 	@NotNull
