@@ -67,3 +67,18 @@ These properties may be modified/edited accordingly so as to enable the web appl
 Eclipse users run `mvn eclipse:eclipse` and then import the project or just import the code as a Maven project into IntelliJ, NetBeans, or Eclipse.
 
 To generate project documentation of Java source files (Javadoc), run ```mvn javadoc:javadoc```
+
+### Considerations
+
+In RESTful web services, it is best to use session-based authentication, either by establishing a session token via a POST or by using an API key as a POST body argument or as a cookie.
+Usernames, passwords, session tokens, and API keys should not appear in the URL, as this can be captured in web server logs and used by attackers with malicious intentions.
+
+In order to make the web service redundant, the following considerations should be taken into account:
+
+- Disaster recovery: you maintain servers in an additional data centre which allows you to recover data in the event your primary data centre is destroyed.
+
+- Hot standby: you maintain duplicate servers in an additional data centre which are running and ready to take over immediately in the event the primary data centre fails.
+
+- Live traffic handling: the same as the hot standby option but this data centre(s) serves web traffic too, and so there is often no real “primary” data centre.
+
+- Replication: This mostly applies to databases. Database fail-over is product specific and it may be complicated when you consider how replication is implemented with regards to master/slave and how fail-over is triggered.
