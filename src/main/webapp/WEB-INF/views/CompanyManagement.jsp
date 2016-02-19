@@ -5,6 +5,11 @@
     <title>Company Rest Service</title>
      <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
      <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+     
+     <script src="<c:url value='/static/js/angular.min.js' />"></script>
+     <script src="<c:url value='/static/js/app.js' />"></script>
+     <script src="<c:url value='/static/js/service/company_service.js' />"></script>
+     <script src="<c:url value='/static/js/controller/company_controller.js' />"></script>
   </head>
   <body ng-app="myApp" class="ng-cloak">
       <center>
@@ -152,11 +157,7 @@
                   </table>
               </div>
           </div>
-      </div>
-      
-      <script src="<c:url value='/static/js/angular.min.js' />"></script>
-      <script src="<c:url value='/static/js/app.js' />"></script>
-      <script src="<c:url value='/static/js/service/company_service.js' />"></script>
-      <script src="<c:url value='/static/js/controller/company_controller.js' />"></script>
+      </div>     
+      </center>
   </body>
 </html>
