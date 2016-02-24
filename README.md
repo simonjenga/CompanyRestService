@@ -20,7 +20,7 @@ A company has the following attributes:
 - Phone (not required)
 - One or more beneficial owner(s)
 
-Create a tiny client using a well know JavaScript framework e.g AngularJS, React or like.
+Create a tiny client using a well know JavaScript framework e.g AngularJS, React or similar.
 
 Building The Project
 ====================
@@ -33,7 +33,7 @@ To run Maven build, execute the following from a console/command prompt with the
 
 This will create a distributable and deployable WAR file for the web application. This file can be deployed on the latest versions of web containers e. Jetty, Tomcat, JBoss etc
 
-This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute any of the following:
+This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute one of the following commands:
 
 ```mvn clean package && mvn tomcat7:run-war```
 
@@ -41,7 +41,10 @@ This project includes an embedded Tomcat Server as a plug-in in the Maven Build 
 
 This will create a distributable WAR file and deploy it in the embedded Tomcat Server.
 
-To view the home page of this web application, open the following URL in a web browser window: ```http://localhost:8080/CompanyRestService```
+To view the home page of this web application, open the following URL in a web browser window:
+```http://localhost:8080/CompanyRestService```
+
+[![This is how the home page dispays](HomePage.png)]
 
 In order to interact with the REST web services using Git Bash execute the following:
 
@@ -55,7 +58,7 @@ In order to interact with the REST web services using Git Bash execute the follo
 
 ```curl -X GET -H "Content-type: application/json" http://localhost:8080/CompanyRestService/restservice/companies```
 
-To run Unit tests, execute the following:
+To run the Unit tests in this project, execute the following:
 
 ```mvn clean test```
 
