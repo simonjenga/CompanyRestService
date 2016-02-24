@@ -41,7 +41,7 @@ This project includes an embedded Tomcat Server as a plug-in in the Maven Build 
 
 This will create a distributable WAR file and deploy it in the embedded Tomcat Server.
 
-To view the home page of this web application, open the URL: ```http://localhost:8080/CompanyRestService``` in a web browser window.
+To view the home page of this web application, open the URL: ```http://localhost:8080/CompanyRestService``` in a web browser.
 
 In order to interact with the REST web services using Git Bash execute the following:
 
