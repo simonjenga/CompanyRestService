@@ -44,7 +44,7 @@ This will create a distributable WAR file and deploy it in the embedded Tomcat S
 To view the home page of this web application, open the following URL in a web browser window:
 ```http://localhost:8080/CompanyRestService```
 
-[![This is how the home page dispays](HomePage.png)]
+[![This is how the home page dispays](HomePage.png?raw=true)][HomePage]
 
 In order to interact with the REST web services using Git Bash execute the following:
 
