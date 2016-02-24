@@ -31,7 +31,7 @@ To run Maven build, execute the following from a console/command prompt with the
 
 ```mvn clean package```
 
-This will create a distributable and deployable WAR file for the web application. This file can be deployed on the latest versions of web containers e. Jetty, Tomcat, JBoss etc
+This will create a distributable and deployable WAR file for the web application. This file can be deployed on the latest versions of web servers/containers e. Jetty, Tomcat, JBoss etc
 
 This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute one of the following commands:
 
@@ -41,8 +41,7 @@ This project includes an embedded Tomcat Server as a plug-in in the Maven Build 
 
 This will create a distributable WAR file and deploy it in the embedded Tomcat Server.
 
-To view the home page of this web application, open the following URL in a web browser window:
-```http://localhost:8080/CompanyRestService```
+To view the home page of this web application, open the following URL in a web browser window: ```http://localhost:8080/CompanyRestService```
 
 In order to interact with the REST web services using Git Bash execute the following:
 
@@ -64,4 +63,4 @@ To run the Unit tests in this project, execute the following:
 
 Eclipse users run `mvn eclipse:eclipse` and then import the project or just import the code as a Maven project into IntelliJ, NetBeans, or Eclipse.
 
-To generate project documentation of Java source files (Javadoc), run `mvn javadoc:javadoc`
+To generate project documentation of Java source files (Javadoc), run ```mvn javadoc:javadoc```
