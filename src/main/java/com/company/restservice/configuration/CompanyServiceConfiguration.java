@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.company.restservice")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter{
+public class CompanyServiceConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
