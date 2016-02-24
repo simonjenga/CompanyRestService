@@ -61,6 +61,9 @@ To run the Unit tests in this project, execute the following:
 
 ### Instructions
 
+The file: ```./CompanyRestService/src/main/resources/application.properties``` contains database and hibernate configurations and settings.
+These properties may be modified/edited accordingly and also to enable the web application to be run on different database vendors e.g PostgreSQL, MySQL, SQLite etc.
+
 Eclipse users run `mvn eclipse:eclipse` and then import the project or just import the code as a Maven project into IntelliJ, NetBeans, or Eclipse.
 
 To generate project documentation of Java source files (Javadoc), run ```mvn javadoc:javadoc```
