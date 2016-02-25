@@ -16,6 +16,12 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
  
+/**
+ * Documentation for this class will be done later!
+ * 
+ * @author Simon Njenga
+ * @since 0.1
+ */
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.company.restservice.configuration" })

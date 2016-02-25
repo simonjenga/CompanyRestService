@@ -4,6 +4,12 @@ import javax.servlet.Filter;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * Documentation for this class will be done later!
+ * 
+ * @author Simon Njenga
+ * @since 0.1
+ */
 public class CompanyServiceInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
     @Override
