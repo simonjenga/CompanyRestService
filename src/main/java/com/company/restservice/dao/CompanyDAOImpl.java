@@ -8,6 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.company.restservice.model.Company;
 
+/**
+ * Documentation for this class will be done later!
+ * 
+ * @author Simon Njenga
+ * @since 0.1
+ */
 @Repository(value = "companyDAO")
 public class CompanyDAOImpl extends GenericDAO implements CompanyDAO {
 
