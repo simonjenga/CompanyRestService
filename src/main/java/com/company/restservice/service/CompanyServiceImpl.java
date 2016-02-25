@@ -11,6 +11,12 @@ import com.company.restservice.dao.CompanyDAO;
 import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
 
+/**
+ * Documentation for this class will be done later!
+ * 
+ * @author Simon Njenga
+ * @since 0.1
+ */
 @Service(value = "companyService")
 public class CompanyServiceImpl implements CompanyService {
 
