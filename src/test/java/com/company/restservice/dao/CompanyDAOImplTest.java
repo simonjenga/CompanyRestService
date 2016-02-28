@@ -8,17 +8,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.company.restservice.configuration.HibernateConfiguration;
 import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
 
@@ -28,12 +28,12 @@ import com.company.restservice.model.Owner;
  * @author Simon Njenga
  * @since 0.1
  */
-@Transactional
 @WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { HibernateConfiguration.class }, loader = AnnotationConfigWebContextLoader.class)
-@ComponentScan(basePackages = "com.company.restservice")
-@TestExecutionListeners(DependencyInjectionTestExecutionListener.class)
+@RunWith(value = SpringJUnit4ClassRunner.class)
+@EnableTransactionManagement(proxyTargetClass = true)
+@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
+@TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
+@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
 public class CompanyDAOImplTest {
 	
 	@Autowired
@@ -123,5 +123,48 @@ public class CompanyDAOImplTest {
 		
 		Assert.assertTrue(savedCompany.getId() != null && companiesList.size() != 0);
 	}
+	
+	/**
+     * JUnit tests documentation to be implemented later!.
+     *  
+     * @throws Exception If some problem inside
+     */
+	@Test
+    @Rollback(true)
+	public void testUpdateCompanyWithNewOwner() {
+		// save the company to database
+		Company savedCompany = companyDAO.saveCompany(company);
+		savedCompany.setName("Felicity");
+		savedCompany.setAddress("Salisbury");
+		savedCompany.setCity("Wiltshire");
+		savedCompany.setCountry("England");
+		savedCompany.setEmail("felicity@salisbury.com");
+		savedCompany.setPhoneNumber("+44-753-110-9524");
+		
+		Owner ownerThree = new Owner();
+		ownerThree.setName("Owner Three");
+		
+		List<Owner> owners = new ArrayList<Owner>(1);
+		owners.add(ownerThree);	
+		
+		savedCompany.setOwner(owners);
+		ownerThree.setCompany(savedCompany);
+		
+		companyDAO.updateCompany(savedCompany);
+		
+		Company updatedCom = companyDAO.getCompanyById(savedCompany.getId());
+		
+		Assert.assertTrue(!savedCompany.getId().equals(null));
+		Assert.assertNotEquals(updatedCom.getName(), "Elizabeth");
+		Assert.assertEquals(updatedCom.getName(), "Felicity");
+		Assert.assertTrue(updatedCom.getEmail().equals("felicity@salisbury.com"));
+		
+		List<Owner> allOwners = updatedCom.getOwner();
+		
+		Assert.assertTrue(allOwners.size() == 3);
+		Assert.assertTrue(!allOwners.get(2).equals(null));
+		Assert.assertTrue(allOwners.get(2).getName().equals("Owner Three"));
+		Assert.assertTrue(allOwners.get(2).getCompany().getAddress().equals("Salisbury"));
+		Assert.assertTrue(allOwners.get(2).getCompany().getPhoneNumber().equals("+44-753-110-9524"));		
+	}
 }
-
