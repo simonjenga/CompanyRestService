@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.company.restservice.model.Company;
 
@@ -14,6 +15,7 @@ import com.company.restservice.model.Company;
  * @author Simon Njenga
  * @since 0.1
  */
+@Transactional
 @Repository(value = "companyDAO")
 public class CompanyDAOImpl extends GenericDAO implements CompanyDAO {
 
