@@ -45,11 +45,11 @@ To view the home page of this web application, open the URL: ```http://localhost
 
 To interact with the RESTful web services using Git Bash, execute the following commands in succession:
 
-```curl -X POST -H "Content-Type: application/json" -d '{ "name": "Felicity", "address": "Woodley", "city": "Berlin", "country": "Germany", "email": "software@engineer.com", "phoneNumber": "+49-234-090", "owner":[ { "name": "Blue" }, { "name": "Red" } ]}' http://localhost:8080/CompanyRestService/restservice/company```
+```curl -X POST -H "Content-Type: application/json" -d '{ "name": "Felicity", "address": "Woodley", "city": "Berlin", "country": "Germany", "email": "software@engineer.com", "phoneNumber": "+49-234-090", "owner":[ { "name": "Blueish" }, { "name": "Reddish" } ]}' http://localhost:8080/CompanyRestService/restservice/company```
 
-```curl -X PUT -H "Content-Type: application/json" -d '{ "name": "Elizabeth", "address": "Langata", "city": "London", "country": "England", "email": "software@engineer.com", "phoneNumber": "+44-786-086", "owner":[ { "id":1, "name":"Green"}, { "id":2, "name":"Pink" } ]}' http://localhost:8080/CompanyRestService/restservice/company/1```
+```curl -X PUT -H "Content-Type: application/json" -d '{ "name": "Elizabeth", "address": "Langata", "city": "London", "country": "England", "email": "software@engineer.com", "phoneNumber": "+44-786-086", "owner":[ { "id":1, "name":"Greenish"}, { "id":2, "name":"Pinkish" } ]}' http://localhost:8080/CompanyRestService/restservice/company/1```
 
-```curl -X PUT -H "Content-Type: application/json" -d '{ "name": "Brown" }' http://localhost:8080/CompanyRestService/restservice/companyowner/1```
+```curl -X PUT -H "Content-Type: application/json" -d '{ "name": "Brownish" }' http://localhost:8080/CompanyRestService/restservice/companyowner/1```
 
 ```curl -X GET -H "Content-type: application/json" http://localhost:8080/CompanyRestService/restservice/company/1```
 
