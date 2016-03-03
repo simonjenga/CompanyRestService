@@ -39,6 +39,19 @@ App.factory('CompanyService', ['$http', '$q', function($http, $q) {
                         return $q.reject(errResponse);
                     }
                 );
+        },
+
+        addOwner: function(id, newowner) {
+            return $http.put('http://localhost:8080/CompanyRestService/restservice/companyowner/'+id, newowner)
+                .then(
+                    function(response) {
+                        return response.data;
+                    },
+                    function(errResponse) {
+                        console.error('Error while adding new owner');
+                        return $q.reject(errResponse);
+                    }
+                );
         }
     };
 }]);
