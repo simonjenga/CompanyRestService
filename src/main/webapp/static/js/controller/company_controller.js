@@ -29,8 +29,8 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             );
     };
 
-    self.updateCompany = function(company, id) {
-    	CompanyService.updateCompany(company, id)
+    self.updateCompany = function(id, company) {
+    	CompanyService.updateCompany(id, company)
             .then(
                 self.fetchAllCompanies,
                 function(errResponse) {
@@ -80,7 +80,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             	var ownerNameAndID = JSON.parse(angular.toJson([{ id: self.editowner.id, name: self.company.owner }], 1));
             	alert(ownerNameAndID);
             	self.company.owner = ownerNameAndID;
-            	self.updateCompany(self.company, self.company.id);
+            	self.updateCompany(self.company.id, self.company);
                 console.log('Company updated with id ', self.company.id);
         	}
         }
