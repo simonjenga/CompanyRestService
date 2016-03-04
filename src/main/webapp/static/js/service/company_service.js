@@ -28,7 +28,7 @@ App.factory('CompanyService', ['$http', '$q', function($http, $q) {
                 );
         },
 
-        updateCompany: function(company, id) {
+        updateCompany: function(id, company) {
             return $http.put('http://localhost:8080/CompanyRestService/restservice/company/'+id, company)
                 .then(
                     function(response) {
