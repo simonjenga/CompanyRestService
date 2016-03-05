@@ -144,14 +144,16 @@
                               <td><span ng-bind="u.email"></span></td>
                               <td><span ng-bind="u.phoneNumber"></span></td>
                               <td>
-                                  <select id="ownerData">
+                                  <select id="ownerData" ng-model="u.owner.name">
 						              <option value="">-- Select Owners --</option>
-						              <option data-ng-repeat="owner in u.owner" value="owner.id}}">{{owner.name}}</option>
+						              <option data-ng-repeat="owner in u.owner" value="{{owner.id}}">{{owner.name}}</option>
 					              </select>
                               </td>
                               <td>
-                                  <button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-success custom-width">Edit</button>
-                              </td>
+                                  <button type="button" ng-click="ctrl.edit(u.id, u.owner.name)" class="btn btn-success custom-width">Edit</button>
+								  <button type="button" ng-click="ctrl.addOwner(u.id)" class="btn btn-success custom-width">Owner</button>
+								  <tt>{{u.owner.name}}</tt>
+                              </td>                             
                           </tr>
                       </tbody>
                   </table>
