@@ -4,7 +4,7 @@ body, #mainWrapper {
 }
 
 body, .form-control {
-    font-size: 12px!important;
+    font-size: 12px !important;
 }
 
 .floatRight {
@@ -32,7 +32,7 @@ body, .form-control {
     margin-bottom: 20px;
     padding: 20px;
     background-color: #EAE7E7;
-    border: 1px solid #ddd;
+    border: 1px solid #dddd;
     border-radius: 4px;
     box-shadow: 0 0 30px black;
 }
@@ -41,6 +41,7 @@ body, .form-control {
     width: 70px !important;
 }
 
+/*! styles for username input */
 .username.ng-valid {
     background-color: lightgreen;
 }
@@ -53,6 +54,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for address input */
 .address.ng-valid {
     background-color: lightgreen;
 }
@@ -65,6 +67,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for city input */
 .city.ng-valid {
     background-color: lightgreen;
 }
@@ -77,6 +80,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for country input */
 .country.ng-valid {
     background-color: lightgreen;
 }
@@ -89,6 +93,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for email input */
 .email.ng-valid {
     background-color: lightgreen;
 }
@@ -101,6 +106,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for phone input */
 .phone.ng-valid {
     background-color: lightgreen;
 }
@@ -113,6 +119,7 @@ body, .form-control {
     background-color: yellow;
 }
 
+/*! styles for owner input */
 .owner.ng-valid {
     background-color: lightgreen;
 }
