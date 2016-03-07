@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
  * A domain object class that models an owner of a company.
@@ -24,6 +26,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @Entity
 @Table(name = "owner")
+@JsonSerialize
+@JsonDeserialize
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Owner implements DomainObject {
 
