@@ -17,7 +17,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -33,9 +32,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 @Entity
 @Table(name = "company")
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonDeserialize
 @JsonSerialize
+@JsonDeserialize
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Company implements DomainObject {
 
 	private static final long serialVersionUID = -3155708942599043175L;
@@ -105,17 +104,6 @@ public class Company implements DomainObject {
 		this.phoneNumber = phoneNumber;
 		this.owner = owner;
     }
-    
-    /*@JsonCreator
-    public Company(@JsonProperty("owner") String owner) {
-		Owner owners = new Owner();
-		owners.setCompany(this);
-		owners.setName(owner);
-		
-		List<Owner> theOwners = new ArrayList<Owner>();
-		theOwners.add(owners);
-		this.owner = theOwners;
-    }*/
     
     /**
 	 * @return the name
