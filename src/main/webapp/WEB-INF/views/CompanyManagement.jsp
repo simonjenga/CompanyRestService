@@ -146,28 +146,28 @@
                               <th width="20%"></th>
                           </tr>
                       </thead>
-                      <tbody>
-                          <tr ng-repeat="u in ctrl.companies">
-                              <td><span ng-bind="u.id"></span></td>
-                              <td><span ng-bind="u.name"></span></td>
-                              <td><span ng-bind="u.address"></span></td>
-                              <td><span ng-bind="u.city"></span></td>
-                              <td><span ng-bind="u.country"></span></td>
-                              <td><span ng-bind="u.email"></span></td>
-                              <td><span ng-bind="u.phoneNumber"></span></td>
-                              <td>
-                                  <select id="ownerData" ng-model="u.owner.name">
-						              <option value="">-- Select Owners --</option>
-						              <option data-ng-repeat="owner in u.owner" value="{{owner.id}}">{{owner.name}}</option>
-					              </select>
-                              </td>
-                              <td>
-                                  <button type="button" ng-click="ctrl.edit(u.id, u.owner.name)" class="btn btn-success custom-width">Edit</button>
-								  <button type="button" ng-click="ctrl.addOwner(u.id)" class="btn btn-success custom-width">Owner</button>
-								  <tt>{{u.owner.name}}</tt>
-                              </td>                             
-                          </tr>
-                      </tbody>
+                        <tbody>
+                            <tr ng-repeat="u in ctrl.companies">
+                                <td><span ng-bind="u.id"></span></td>
+                                <td><span ng-bind="u.name"></span></td>
+                                <td><span ng-bind="u.address"></span></td>
+                                <td><span ng-bind="u.city"></span></td>
+                                <td><span ng-bind="u.country"></span></td>
+                                <td><span ng-bind="u.email"></span></td>
+                                <td><span ng-bind="u.phoneNumber"></span></td>
+                                <td>
+                                    <select id="ownerData" ng-model="u.owner.name">
+                                        <option value="">-- Select Owners --</option>
+                                        <option data-ng-repeat="owner in u.owner" value="{{owner.id}}">{{owner.name}}</option>
+                                    </select>
+                                </td>
+<td>
+<button type="button" ng-click="ctrl.edit(u.id, u.owner.name)" class="btn btn-success custom-width">Edit</button>
+<button type="button" ng-click="ctrl.addOwner(u.id)" class="btn btn-success custom-width">Owner</button>
+<tt>{{u.owner.name}}</tt>
+</td>                             
+                            </tr>
+                        </tbody>
                   </table>
               </div>
           </div>
