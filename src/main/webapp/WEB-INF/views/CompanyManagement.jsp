@@ -161,11 +161,11 @@
                                         <option data-ng-repeat="owner in u.owner" value="{{owner.id}}">{{owner.name}}</option>
                                     </select>
                                 </td>
-<td>
-<button type="button" ng-click="ctrl.edit(u.id, u.owner.name)" class="btn btn-success custom-width">Edit</button>
-<button type="button" ng-click="ctrl.addOwner(u.id)" class="btn btn-success custom-width">Owner</button>
-<tt>{{u.owner.name}}</tt>
-</td>                             
+                                <td>
+                                    <button type="button" ng-click="ctrl.edit(u.id, u.owner.name)" class="btn btn-success custom-width">Edit</button>
+                                    <button type="button" ng-click="ctrl.addOwner(u.id)" class="btn btn-success custom-width">Owner</button>
+                                    <tt>{{u.owner.name}}</tt>
+                                </td>                             
                             </tr>
                         </tbody>
                   </table>
