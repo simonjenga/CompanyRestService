@@ -132,7 +132,7 @@
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Companies</span></div>
               <div class="tablecontainer">
-			        <table id="listCompanies" class="table table-hover">
+                <table id="listCompanies" class="table table-hover">
                       <thead>
                           <tr>
                               <th>ID.</th>
