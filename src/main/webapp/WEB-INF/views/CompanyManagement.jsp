@@ -1,16 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-  <head>  
-    <title>Company Rest Service</title>
-     <link href="<c:url value='/static/css/bootstrap.min.css' />" rel="stylesheet"></link>
-     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
-     
-     <script src="<c:url value='/static/js/angular.min.js' />"></script>
-     <script src="<c:url value='/static/js/app.js' />"></script>
-     <script src="<c:url value='/static/js/service/company_service.js' />"></script>
-     <script src="<c:url value='/static/js/controller/company_controller.js' />"></script>
-  </head>
+    <head>  
+        <title>Company Rest Service</title>
+        <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/bootstrap.min.css' />"></link>
+        <link type="text/css" rel="stylesheet" href="<c:url value='/static/css/app.css' />"></link>
+
+        <script type="text/javascript" src="<c:url value='/static/js/angular.min.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/static/js/app.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/static/js/service/company_service.js' />"></script>
+        <script type="text/javascript" src="<c:url value='/static/js/controller/company_controller.js' />"></script>
+
+        <script type="text/javascript">
+            document.open();
+            document.write(
+                '<style type="text/css" rel="stylesheet">\n',
+                'table#listCompanies tr:nth-child(even) { background-color:#DDDDDD !important; }',
+                'table#listCompanies tr:hover:nth-child(odd) { background-color:#BCD2E5 !important; }',
+                'table#listCompanies tr:hover:nth-child(even) { background-color:#BCD2E5 !important; }',
+                '</style>\n'
+            );
+            document.close();
+        </script>
+    </head>
   <body ng-app="myApp" class="ng-cloak">
       <center>
       <div class="generic-container" ng-controller="CompanyController as ctrl">
@@ -109,7 +121,7 @@
 
                       <div class="row">
                           <div class="form-actions floatRight">
-                              <input type="submit"  value="{{!ctrl.company.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                              <input type="submit" value="{{!ctrl.company.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
                               <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
                           </div>
                       </div>
@@ -120,7 +132,7 @@
                 <!-- Default panel contents -->
               <div class="panel-heading"><span class="lead">List of Companies</span></div>
               <div class="tablecontainer">
-                  <table class="table table-hover">
+			        <table id="listCompanies" class="table table-hover">
                       <thead>
                           <tr>
                               <th>ID.</th>
