@@ -131,3 +131,19 @@ body, .form-control {
 .owner.ng-dirty.ng-invalid-minlength {
     background-color: yellow;
 }
+
+table#listCompanies tbody tr:nth-child(even) {
+    background-color:#DDDDDD !important;
+}
+
+table#listCompanies tbody tr:hover:nth-child(odd) {
+    background-color:#BCD2E5 !important;
+}
+
+table#listCompanies tbody tr:hover:nth-child(even) {
+    background-color:#BCD2E5 !important;
+}
+
+table#listCompanies thead tr:hover:nth-child(1) {
+    background-color:transparent !important;
+}
