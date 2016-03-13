@@ -35,33 +35,33 @@
                                 </div>
                             </div>
                       
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="address">Address:</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.company.address" name="address" class="address form-control input-sm" placeholder="Enter your address" required ng-minlength="5"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.address.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.address.$error.minlength">Minimum length required is 5</span>
-                                      <span ng-show="myForm.address.$invalid">This field is invalid</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable" for="address">Address:</label>
+                                    <div class="col-md-7">
+                                        <input type="text" ng-model="ctrl.company.address" name="address" class="address form-control input-sm" placeholder="Enter your address" required ng-minlength="5"/>
+                                        <div class="has-error" ng-show="myForm.$dirty">
+                                            <span ng-show="myForm.address.$error.required">This is a required field</span>
+                                            <span ng-show="myForm.address.$error.minlength">Minimum length required is 5</span>
+                                            <span ng-show="myForm.address.$invalid">This field is invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="city">City:</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.company.city" name="city" class="city form-control input-sm" placeholder="Enter your city" required ng-minlength="5"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.city.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.city.$error.minlength">Minimum length required is 5</span>
-                                      <span ng-show="myForm.city.$invalid">This field is invalid</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable" for="city">City:</label>
+                                    <div class="col-md-7">
+                                        <input type="text" ng-model="ctrl.company.city" name="city" class="city form-control input-sm" placeholder="Enter your city" required ng-minlength="5"/>
+                                        <div class="has-error" ng-show="myForm.$dirty">
+                                            <span ng-show="myForm.city.$error.required">This is a required field</span>
+                                            <span ng-show="myForm.city.$error.minlength">Minimum length required is 5</span>
+                                            <span ng-show="myForm.city.$invalid">This field is invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       
                       <div class="row">
                           <div class="form-group col-md-12">
