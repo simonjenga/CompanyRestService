@@ -23,7 +23,7 @@
                             <input type="hidden" ng-model="ctrl.company.id" />
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="username">Name:</label>
+                                    <label class="col-md-2 control-label" for="username">Name:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.name" name="username" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="5"/>
                                         <div class="has-error" ng-show="myForm.$dirty">
@@ -37,7 +37,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="address">Address:</label>
+                                    <label class="col-md-2 control-label" for="address">Address:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.address" name="address" class="address form-control input-sm" placeholder="Enter your address" required ng-minlength="5"/>
                                         <div class="has-error" ng-show="myForm.$dirty">
@@ -51,7 +51,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="city">City:</label>
+                                    <label class="col-md-2 control-label" for="city">City:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.city" name="city" class="city form-control input-sm" placeholder="Enter your city" required ng-minlength="5"/>
                                         <div class="has-error" ng-show="myForm.$dirty">
@@ -65,7 +65,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="country">Country:</label>
+                                    <label class="col-md-2 control-label" for="country">Country:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.country" name="country" class="country form-control input-sm" placeholder="Enter your country" required ng-minlength="5"/>
                                         <div class="has-error" ng-show="myForm.$dirty">
@@ -79,7 +79,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="email">Email:</label>
+                                    <label class="col-md-2 control-label" for="email">Email:</label>
                                     <div class="col-md-7">
                                         <input type="email" ng-model="ctrl.company.email" name="email" class="email form-control input-sm" placeholder="Enter your email [This field is validation free]"/>                                  
                                     </div>
@@ -88,7 +88,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="phone">Phone:</label>
+                                    <label class="col-md-2 control-label" for="phone">Phone:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.phoneNumber" name="phone" class="phone form-control input-sm" placeholder="Enter your phone [This field is validation free]"/>
                                     </div>
@@ -97,7 +97,7 @@
                       
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label class="col-md-2 control-lable" for="owner">Owner:</label>
+                                    <label class="col-md-2 control-label" for="owner">Owner:</label>
                                     <div class="col-md-7">
                                         <input type="text" ng-model="ctrl.company.owner" name="owner" class="owner form-control input-sm" placeholder="Enter the owner" required ng-minlength="5"/>
                                         <div class="has-error" ng-show="myForm.$dirty">
