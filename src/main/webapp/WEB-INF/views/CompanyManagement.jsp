@@ -118,24 +118,24 @@
                         </form>
                     </div>
                 </div>
-          <div class="panel panel-default">
-                <!-- Default panel contents -->
-              <div class="panel-heading"><span class="lead">List of Companies</span></div>
-              <div class="tablecontainer">
-                <table id="listCompanies" class="table table-hover">
-                      <thead>
-                          <tr>
-                              <th>ID.</th>
-                              <th>Name</th>
-                              <th>Address</th>
-                              <th>City</th>
-                              <th>Country</th>
-                              <th>Email</th>
-                              <th>Phone</th>
-                              <th>Owner</th>
-                              <th width="20%"></th>
-                          </tr>
-                      </thead>
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><span class="lead">List of Companies</span></div>
+                    <div class="tablecontainer">
+                        <table id="listCompanies" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID.</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Country</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Owner</th>
+                                    <th width="20%"></th>
+                                </tr>
+                            </thead>
                         <tbody>
                             <tr ng-repeat="u in ctrl.companies">
                                 <td><span ng-bind="u.id"></span></td>
