@@ -77,14 +77,14 @@
                                 </div>
                             </div>
                       
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="email">Email:</label>
-                              <div class="col-md-7">
-                                  <input type="email" ng-model="ctrl.company.email" name="email" class="email form-control input-sm" placeholder="Enter your email [This field is validation free]"/>                                  
-                              </div>
-                          </div>
-                      </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable" for="email">Email:</label>
+                                    <div class="col-md-7">
+                                        <input type="email" ng-model="ctrl.company.email" name="email" class="email form-control input-sm" placeholder="Enter your email [This field is validation free]"/>                                  
+                                    </div>
+                                </div>
+                            </div>
                       
                       <div class="row">
                           <div class="form-group col-md-12">
