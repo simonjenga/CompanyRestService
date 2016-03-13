@@ -11,29 +11,29 @@
         <script type="text/javascript" src="<c:url value='/static/js/angular.min.js' />"></script>
         <script type="text/javascript" src="<c:url value='/static/js/app.js' />"></script>
         <script type="text/javascript" src="<c:url value='/static/js/service/company_service.js' />"></script>
-        <script type="text/javascript" src="<c:url value='/static/js/controller/company_controller.js' />"></script>        
+        <script type="text/javascript" src="<c:url value='/static/js/controller/company_controller.js' />"></script>
     </head>
-  <body ng-app="myApp" class="ng-cloak">
-      <center>
-      <div class="generic-container" ng-controller="CompanyController as ctrl">
-          <div class="panel panel-default">
-              <div class="panel-heading"><span class="lead">Company Rest Service</span></div>
-              <div class="formcontainer">
-                  <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
-                      <input type="hidden" ng-model="ctrl.company.id" />
-                      <div class="row">
-                          <div class="form-group col-md-12">
-                              <label class="col-md-2 control-lable" for="username">Name:</label>
-                              <div class="col-md-7">
-                                  <input type="text" ng-model="ctrl.company.name" name="username" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="5"/>
-                                  <div class="has-error" ng-show="myForm.$dirty">
-                                      <span ng-show="myForm.username.$error.required">This is a required field</span>
-                                      <span ng-show="myForm.username.$error.minlength">Minimum length required is 5</span>
-                                      <span ng-show="myForm.username.$invalid">This field is invalid</span>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+    <body ng-app="myApp" class="ng-cloak">
+        <center>
+            <div class="generic-container" ng-controller="CompanyController as ctrl">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="lead">Company Rest Service</span></div>
+                    <div class="formcontainer">
+                        <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal">
+                            <input type="hidden" ng-model="ctrl.company.id" />
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-2 control-lable" for="username">Name:</label>
+                                    <div class="col-md-7">
+                                        <input type="text" ng-model="ctrl.company.name" name="username" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="5"/>
+                                        <div class="has-error" ng-show="myForm.$dirty">
+                                            <span ng-show="myForm.username.$error.required">This is a required field</span>
+                                            <span ng-show="myForm.username.$error.minlength">Minimum length required is 5</span>
+                                            <span ng-show="myForm.username.$invalid">This field is invalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       
                       <div class="row">
                           <div class="form-group col-md-12">
