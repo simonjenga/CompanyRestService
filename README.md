@@ -33,13 +33,17 @@ To run Maven build, execute the following from a console/command prompt with the
 
 This will create a distributable and deployable WAR file for the web application. This WAR file can be deployed on the latest versions of web servers/containers e.g Jetty, Tomcat, JBoss etc.
 
-This project includes an embedded Tomcat Server as a plug-in in the Maven Build file. In order to run this project using this plug-in, execute one of the following commands:
+This project includes an embedded Tomcat and Jetty Server as a plug-in in the Maven Build file. In order to run this project using either of these plug-ins, execute only one of the following commands:
+
+```mvn jetty:run-war```
+
+```mvn jetty:run-war -DskipTests -Dinvoker.skip=true```
 
 ```mvn tomcat7:run-war```
 
 ```mvn tomcat7:run-war -DskipTests -Dinvoker.skip=true```
 
-This will create a distributable WAR file and deploy it in the embedded Tomcat Server.
+This will create a distributable WAR file and deploy it in the respective embedded Tomcat or Jetty Server.
 
 To view the home page of this web application, open the URL: ```http://localhost:8080/CompanyRestService``` in a web browser.
 
