@@ -37,6 +37,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Company implements DomainObject {
 
+	/**
+     * Serialization marker.
+     */
 	private static final long serialVersionUID = -3155708942599043175L;
 
     @TableGenerator(name = "companyIdGen", 
