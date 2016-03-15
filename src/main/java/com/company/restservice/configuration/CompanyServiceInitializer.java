@@ -4,6 +4,8 @@ import javax.servlet.Filter;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import com.company.restservice.web.servlet.utils.CORSFilter;
+
 /**
  * Documentation for this class will be done later!
  * 
@@ -31,6 +33,5 @@ public class CompanyServiceInitializer extends AbstractAnnotationConfigDispatche
     protected Filter[] getServletFilters() {
     	Filter [] singleton = { new CORSFilter() };
     	return singleton;
-	}
- 
+	} 
 }
