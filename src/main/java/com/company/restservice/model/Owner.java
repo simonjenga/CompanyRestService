@@ -89,46 +89,46 @@ public class Owner implements DomainObject {
         this.company = company;
     }
 
-/**
-* @return the id
-*/
-@Override
-public Long getId() {
-return this.id;
-}
+    /**
+     * @return the id
+     */
+    @Override
+    public Long getId() {
+        return this.id;
+    }
 
-/**
-* @param id the id to set
-*/
-@Override
-public void setId(Long id) {
-this.id = id;
-}
+    /**
+     * @param id the id to set
+     */
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-/**
-* @return the name
-*/
-public String getName() {
-return name;
-}
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-/**
-* @param name the name to set
-*/
-public void setName(String name) {
-this.name = name;
-}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-/* (non-Javadoc)
-* @see java.lang.Object#hashCode()
-*/
-@Override
-public int hashCode() {
-final int prime = 31;
-int result = 1;
-result = prime * result + ((id == null) ? 0 : id.hashCode());
-return result;
-}
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
 
 /* (non-Javadoc)
 * @see java.lang.Object#equals(java.lang.Object)
