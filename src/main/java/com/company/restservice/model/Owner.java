@@ -130,28 +130,28 @@ public class Owner implements DomainObject {
         return result;
     }
 
-/* (non-Javadoc)
-* @see java.lang.Object#equals(java.lang.Object)
-*/
-@Override
-public boolean equals(Object obj) {
-if (this == obj)
-return true;
-if (obj == null)
-return false;
-if (getClass() != obj.getClass())
-return false;
-Owner other = (Owner) obj;
-if (id == null) {
-if (other.id != null)
-return false;
-} else if (!id.equals(other.id))
-return false;
-return true;
-}
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Owner other = (Owner) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
 
-@Override
-public String toString() {
-return "Owner [id=" + id + ", name=" + name + ", company=" + company + "]";
-}
+    @Override
+    public String toString() {
+        return "Owner [id=" + id + ", name=" + name + ", company=" + company + "]";
+    }
 }
