@@ -50,21 +50,21 @@ public class Owner implements DomainObject {
     @Column(name = "id_owner", nullable = false, updatable = false)
     private Long id;
 
-@NotNull
-@Column(name = "name", nullable = false)
-private String name;
+    @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
 
-@JsonBackReference
-@NotNull
-@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-@JoinColumn(name = "id_company")
-private Company company;
+    @JsonBackReference
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_company")
+    private Company company;
 
-/**
-* Public default constructor
-*/
-public Owner() {
-}
+    /**
+     * Public default constructor
+     */
+    public Owner() {
+    }
 
 /**
 * Public parametized constructor
