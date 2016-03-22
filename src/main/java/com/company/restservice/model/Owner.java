@@ -66,28 +66,28 @@ public class Owner implements DomainObject {
     public Owner() {
     }
 
-/**
-* Public parametized constructor
-*/
-public Owner(Long id, String name, Company company) {
-this.id = id;
-this.name = name;
-this.company = company;
-}
+    /**
+     * Public parametized constructor
+     */
+    public Owner(Long id, String name, Company company) {
+        this.id = id;
+        this.name = name;
+        this.company = company;
+    }
 
-/**
-* @return the company
-*/
-public Company getCompany() {
-return company;
-}
+    /**
+     * @return the company
+     */
+    public Company getCompany() {
+        return company;
+    }
 
-/**
-* @param company the company to set
-*/
-public void setCompany(Company company) {
-this.company = company;
-}
+    /**
+     * @param company the company to set
+     */
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
 /**
 * @return the id
