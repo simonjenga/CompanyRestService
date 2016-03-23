@@ -37,32 +37,32 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Company implements DomainObject {
 
-/**
-* Serialization marker.
-*/
-private static final long serialVersionUID = -3155708942599043175L;
+    /**
+     * Serialization marker.
+     */
+    private static final long serialVersionUID = -3155708942599043175L;
 
-@TableGenerator(name = "companyIdGen", 
-table = "id_gen",
-pkColumnName = "gen_key", 
-valueColumnName = "gen_value", 
-pkColumnValue = "id_company", 
-initialValue = 1, 
-allocationSize = 1)
+    @TableGenerator(name = "companyIdGen", 
+        table = "id_gen", 
+        pkColumnName = "gen_key", 
+        valueColumnName = "gen_value", 
+        pkColumnValue = "id_company", 
+        initialValue = 1, 
+        allocationSize = 1)
 
-@Id
-@NotNull
-@GeneratedValue(strategy = GenerationType.TABLE, generator = "companyIdGen")
-@Column(name = "id_company", nullable = false, updatable = false)
-private Long id;
+    @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "companyIdGen")
+    @Column(name = "id_company", nullable = false, updatable = false)
+    private Long id;
 
-@NotNull
-@Column(name = "name", nullable = false)
-private String name;
+    @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
 
-@NotNull
-@Column(name = "address", nullable = false)
-private String address;
+    @NotNull
+    @Column(name = "address", nullable = false)
+    private String address;
 
     @NotNull
     @Column(name = "city", nullable = false)
