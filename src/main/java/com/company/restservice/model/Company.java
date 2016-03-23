@@ -122,33 +122,33 @@ public void setName(String name) {
 this.name = name;
 }
 
-/**
-* @return the address
-*/
-public String getAddress() {
-return address;
-}
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
 
-/**
-* @param address the address to set
-*/
-public void setAddress(String address) {
-this.address = address;
-}
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-/**
-* @return the city
-*/
-public String getCity() {
-return city;
-}
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
 
-/**
-* @param city the city to set
-*/
-public void setCity(String city) {
-this.city = city;
-}
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     /**
      * @return the country
