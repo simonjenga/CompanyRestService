@@ -64,29 +64,29 @@ private String name;
 @Column(name = "address", nullable = false)
 private String address;
 
-@NotNull
-@Column(name = "city", nullable = false)
-private String city;
+    @NotNull
+    @Column(name = "city", nullable = false)
+    private String city;
 
-@NotNull
-@Column(name = "country", nullable = false)
-private String country;
+    @NotNull
+    @Column(name = "country", nullable = false)
+    private String country;
 
-@Nullable
-@Email(message = "A valid email address is required") 
-@Column(name = "email", nullable = true)
-private String email;
+    @Nullable
+    @Email(message = "A valid email address is required") 
+    @Column(name = "email", nullable = true)
+    private String email;
 
-@Nullable
-@Column(name = "phoneNumber", nullable = true)
-private String phoneNumber;
+    @Nullable
+    @Column(name = "phoneNumber", nullable = true)
+    private String phoneNumber;
 
-@JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
-@JsonProperty(value = "owner")
-@JsonManagedReference
-@NotNull
-@OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-private List<Owner> owner;
+    @JsonFormat(with = JsonFormat.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
+    @JsonProperty(value = "owner")
+    @JsonManagedReference
+    @NotNull
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Owner> owner;
 
     /**
      * Public default constructor
