@@ -88,39 +88,39 @@ private String phoneNumber;
 @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 private List<Owner> owner;
 
-/**
-* Public default constructor
-*/
-public Company() {		
-}
+    /**
+     * Public default constructor
+     */
+    public Company() {		
+    }
 
-/**
-* Public parametized constructor
-*/
-public Company(Long id, String name, String address, String city, String country, String email, String phoneNumber, List<Owner> owner) {
-this.id = id;
-this.name = name;
-this.address = address;
-this.city = city;
-this.country = country;
-this.email = email;
-this.phoneNumber = phoneNumber;
-this.owner = owner;
-}
+    /**
+     * Public parametized constructor
+     */
+    public Company(Long id, String name, String address, String city, String country, String email, String phoneNumber, List<Owner> owner) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+    }
 
-/**
-* @return the name
-*/
-public String getName() {
-return name;
-}
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-/**
-* @param name the name to set
-*/
-public void setName(String name) {
-this.name = name;
-}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * @return the address
