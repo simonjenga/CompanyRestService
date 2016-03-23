@@ -150,33 +150,33 @@ public void setCity(String city) {
 this.city = city;
 }
 
-/**
-* @return the country
-*/
-public String getCountry() {
-return country;
-}
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
 
-/**
-* @param country the country to set
-*/
-public void setCountry(String country) {
-this.country = country;
-}
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
-/**
-* @return the email
-*/
-public String getEmail() {
-return email;
-}
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-/**
-* @param email the email to set
-*/
-public void setEmail(String email) {
-this.email = email;
-}
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     /**
      * @return the phoneNumber
