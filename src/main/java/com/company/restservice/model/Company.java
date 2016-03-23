@@ -178,33 +178,33 @@ public void setEmail(String email) {
 this.email = email;
 }
 
-/**
-* @return the phoneNumber
-*/
-public String getPhoneNumber() {
-return phoneNumber;
-}
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-/**
-* @param phoneNumber the phoneNumber to set
-*/
-public void setPhoneNumber(String phoneNumber) {
-this.phoneNumber = phoneNumber;
-}
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-/**
-* @return the owner
-*/
-public List<Owner> getOwner() {
-return owner;
-}
+    /**
+     * @return the owner
+     */
+    public List<Owner> getOwner() {
+        return owner;
+    }
 
-/**
-* @param owner the owner to set
-*/
-public void setOwner(List<Owner> owner) {
-this.owner = owner;
-}
+    /**
+     * @param owner the owner to set
+     */
+    public void setOwner(List<Owner> owner) {
+        this.owner = owner;
+    }
 
     /**
      * @return the id
