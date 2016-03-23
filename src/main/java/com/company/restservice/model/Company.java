@@ -206,21 +206,21 @@ public void setOwner(List<Owner> owner) {
 this.owner = owner;
 }
 
-/**
-* @return the id
-*/
-@Override
-public Long getId() {
-return id;
-}
+    /**
+     * @return the id
+     */
+    @Override
+    public Long getId() {
+        return id;
+    }
 
-/**
-* @param id the id to set
-*/
-@Override
-public void setId(Long id) {
-this.id = id;
-}
+    /**
+     * @param id the id to set
+     */
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
