@@ -10,14 +10,19 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
- * Documentation for this class will be done later!
- * 
+ * {@code DispatcherServlet} Context: defines this servlet's request-processing infrastructure @Configuration annotation.
+ * This annotation indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+ * Enables the Spring MVC @Controller programming model.
+ *
+ * {@link #DispatcherServlet(WebApplicationContext)} Javadoc for more details.
+ * {@link #FrameworkServlet(WebApplicationContext)} Javadoc for more details.
+ *
  * @author Simon Njenga
  * @since 0.1
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.company.restservice")
+@ComponentScan(basePackages = { "com.company.restservice" })
 public class CompanyServiceConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Override
