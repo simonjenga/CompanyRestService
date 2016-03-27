@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -29,6 +31,7 @@ import com.company.restservice.model.Owner;
  * @since 0.1
  */
 @WebAppConfiguration
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(value = SpringJUnit4ClassRunner.class)
 @EnableTransactionManagement(proxyTargetClass = true)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
