@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ContextConfiguration;
@@ -40,7 +42,8 @@ import com.company.restservice.model.Owner;
 @Ignore
 @Transactional
 @WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(value = SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { HibernateConfiguration.class }, loader = AnnotationConfigWebContextLoader.class)
 @ComponentScan(basePackages = "com.company.restservice")
 @TestExecutionListeners(DependencyInjectionTestExecutionListener.class)
