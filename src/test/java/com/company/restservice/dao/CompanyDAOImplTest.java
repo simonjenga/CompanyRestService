@@ -31,7 +31,7 @@ import com.company.restservice.model.Owner;
  * @since 0.1
  */
 @WebAppConfiguration
-//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(value = SpringJUnit4ClassRunner.class)
 @EnableTransactionManagement(proxyTargetClass = true)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
