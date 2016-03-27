@@ -42,7 +42,7 @@ import com.company.restservice.model.Owner;
 @Ignore
 @Transactional
 @WebAppConfiguration
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(value = SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { HibernateConfiguration.class }, loader = AnnotationConfigWebContextLoader.class)
 @ComponentScan(basePackages = "com.company.restservice")
