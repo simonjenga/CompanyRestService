@@ -10,12 +10,18 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 /**
- * {@code DispatcherServlet} Context: defines this servlet's request-processing infrastructure @Configuration annotation.
- * This annotation indicates that the class can be used by the Spring IoC container as a source of bean definitions.
- * Enables the Spring MVC @Controller programming model.
+ * This class extends {@code WebMvcConfigurerAdapter}, which provides empty methods that can be overridden to
+ * provide customize default configuration of Spring MVC. The @EnableWebMvc annotation enables Spring MVC
+ * configuration to be done explicitly through Java code.
+ * 
+ * The @Configuration annotation indicates that the class can be used by the Spring IoC container as a source
+ * of bean definitions. It helps to enable the Spring MVC @Controller programming model.
  *
- * {@link #DispatcherServlet(WebApplicationContext)} Javadoc for more details.
- * {@link #FrameworkServlet(WebApplicationContext)} Javadoc for more details.
+ * The {@code DispatcherServlet} context defines this servlet's request-processing infrastructure. Please visit
+ * here {@link #DispatcherServlet(WebApplicationContext)}, {@link #FrameworkServlet(WebApplicationContext)} for
+ * more details.
+ *
+ * http://docs.spring.io/autorepo/docs/spring/3.2.x/spring-framework-reference/html/mvc.html
  *
  * @author Simon Njenga
  * @since 0.1
@@ -36,6 +42,6 @@ public class CompanyServiceConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+		registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
 	}
 }
