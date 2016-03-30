@@ -3,7 +3,6 @@ package com.company.restservice.dao;
 import java.util.List;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,48 +20,34 @@ public class CompanyDAOImpl extends GenericDAO implements CompanyDAO {
 
 	@Override
 	public Company saveCompany(Company company) {
-		final Session session = this.getOpenSession();
-		Transaction tx = session.beginTransaction();
-		session.save(company);
-		tx.commit();		
+		final Session session = this.getCurrentSession();		
+		session.save(company);				
 		session.flush();
-		session.close();
 		return company;
 	}
 	
 	@Override
 	public Company updateCompany(Company company) {
-		final Session session = this.getOpenSession();
-		Transaction tx = session.beginTransaction();
-		session.clear();
-		session.update(company);
-		session.merge(company);
-		tx.commit();		
+		final Session session = this.getCurrentSession();		
+		session.update(company);						
 		session.flush();
-		session.close();
 		return company;
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Company> getCompaniesList() {
-		final Session session = this.getOpenSession();
-		Transaction tx = session.beginTransaction();
-		List<Company> companies = session.createQuery("from Company").list();
-		tx.commit();
+		final Session session = this.getCurrentSession();		
+		List<Company> companies = session.createQuery("from Company").list();		
 		session.flush();
-		session.close();
 		return companies;
 	}
 
 	@Override
 	public Company getCompanyById(Long companyId) {
-		final Session session = this.getOpenSession();
-		Transaction tx = session.beginTransaction();
-		Company company = (Company) getCurrentSession().get(Company.class, companyId);
-		tx.commit();
+		final Session session = this.getCurrentSession();		
+		Company company = (Company) getCurrentSession().get(Company.class, companyId);		
 		session.flush();
-		session.close();
 		return company;
 	}
 }
