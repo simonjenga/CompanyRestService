@@ -18,5 +18,7 @@ public interface CompanyDAO {
 	
 	Company getCompanyById(Long companyId);
 	
+	void deleteCompany(Long companyId);
+	
 	List<Company> getCompaniesList();
 }
