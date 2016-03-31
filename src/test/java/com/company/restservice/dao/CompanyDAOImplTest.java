@@ -36,7 +36,7 @@ import com.company.restservice.model.Owner;
 @EnableTransactionManagement(proxyTargetClass = true)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
-@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
+@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
 public class CompanyDAOImplTest {
 	
 	@Autowired
