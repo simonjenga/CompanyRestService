@@ -36,7 +36,7 @@ import com.company.restservice.model.Owner;
 @EnableTransactionManagement(proxyTargetClass = true)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
-@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
+@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
 public class CompanyDAOImplTest {
 	
 	@Autowired
@@ -47,27 +47,27 @@ public class CompanyDAOImplTest {
 	
 	@Before
 	public void setup() {
-		company = new Company();
-		ownerOne = new Owner();
-		ownerTwo = new Owner();
+		this.company = new Company();
+		this.ownerOne = new Owner();
+		this.ownerTwo = new Owner();
 				
-		company.setName("Elizabeth");
-		company.setAddress("Oxford");
-		company.setCity("London");
-		company.setCountry("England");
-		company.setEmail("elizabeth@kingsway.edu");
-		company.setPhoneNumber("+44-756-093-2218");
+		this.company.setName("Elizabeth");
+		this.company.setAddress("Oxford");
+		this.company.setCity("London");
+		this.company.setCountry("England");
+		this.company.setEmail("elizabeth@kingsway.edu");
+		this.company.setPhoneNumber("+44-756-093-2218");
 		
-		ownerOne.setName("Owner One");
-		ownerTwo.setName("Owner Two");
+		this.ownerOne.setName("Owner One");
+		this.ownerTwo.setName("Owner Two");
 		
 		List<Owner> owners = new ArrayList<Owner>(2);
-		owners.add(ownerOne);
-		owners.add(ownerTwo);		
+		owners.add(this.ownerOne);
+		owners.add(this.ownerTwo);		
 		
-		company.setOwner(owners);
-		ownerOne.setCompany(company);
-		ownerTwo.setCompany(company);
+		this.company.setOwner(owners);
+		this.ownerOne.setCompany(this.company);
+		this.ownerTwo.setCompany(this.company);
 	}
 	
 	/**
@@ -79,10 +79,10 @@ public class CompanyDAOImplTest {
     @Rollback(true)
 	public void testAddCompany() {
 		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
+		Company savedCompany = this.companyDAO.saveCompany(this.company);
 		
 		Assert.assertTrue(savedCompany.getId() != null);
-		Assert.assertEquals(company.getName(), savedCompany.getName());
+		Assert.assertEquals(this.company.getName(), savedCompany.getName());
 		Assert.assertTrue(savedCompany.getOwner().size() == 2);
 	}
 	
@@ -95,7 +95,7 @@ public class CompanyDAOImplTest {
     @Rollback(true)
 	public void testUpdateCompany() {
 		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
+		Company savedCompany = this.companyDAO.saveCompany(this.company);
 		savedCompany.setName("Felicity");
 		savedCompany.setAddress("Salisbury");
 		savedCompany.setCity("Wiltshire");
@@ -103,7 +103,7 @@ public class CompanyDAOImplTest {
 		savedCompany.setEmail("felicity@salisbury.com");
 		savedCompany.setPhoneNumber("+44-753-110-9524");
 		
-		Company updatedCompany = companyDAO.updateCompany(savedCompany);
+		Company updatedCompany = this.companyDAO.updateCompany(savedCompany);
 		
 		Assert.assertTrue(savedCompany.getId() != null);
 		Assert.assertNotEquals(updatedCompany.getName(), "Elizabeth");
@@ -120,9 +120,9 @@ public class CompanyDAOImplTest {
     @Rollback(true)
 	public void testCompaniesList() {
 		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
+		Company savedCompany = this.companyDAO.saveCompany(this.company);
 		
-		List<Company> companiesList = companyDAO.getCompaniesList();
+		List<Company> companiesList = this.companyDAO.getCompaniesList();
 		
 		Assert.assertTrue(savedCompany.getId() != null && companiesList.size() != 0);
 	}
@@ -136,7 +136,7 @@ public class CompanyDAOImplTest {
     @Rollback(true)
 	public void testUpdateCompanyWithNewOwner() {
 		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
+		Company savedCompany = this.companyDAO.saveCompany(this.company);
 		savedCompany.setName("Felicity");
 		savedCompany.setAddress("Salisbury");
 		savedCompany.setCity("Wiltshire");
@@ -153,9 +153,9 @@ public class CompanyDAOImplTest {
 		savedCompany.setOwner(owners);
 		ownerThree.setCompany(savedCompany);
 		
-		companyDAO.updateCompany(savedCompany);
+		this.companyDAO.updateCompany(savedCompany);
 		
-		Company updatedCom = companyDAO.getCompanyById(savedCompany.getId());
+		Company updatedCom = this.companyDAO.getCompanyById(savedCompany.getId());
 		
 		Assert.assertTrue(!savedCompany.getId().equals(null));
 		Assert.assertNotEquals(updatedCom.getName(), "Elizabeth");
