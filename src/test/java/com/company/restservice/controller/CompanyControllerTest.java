@@ -41,7 +41,7 @@ import com.company.restservice.model.Owner;
  * @author Simon Njenga
  * @since 0.1
  */
-//@org.junit.Ignore
+@org.junit.Ignore
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -100,7 +100,6 @@ public class CompanyControllerTest {
 		ResponseEntity<String> response = this.template.getForEntity(this.baseURL + "/companies", String.class);
         
 		Assert.assertTrue(response != null && response.hasBody() && !response.getBody().isEmpty());
-		System.out.println(response.getBody().toString());
     }
 	
 	/**
@@ -119,6 +118,5 @@ public class CompanyControllerTest {
 		ResponseEntity<String> response = this.template.getForEntity(this.baseURL + "/company/" + savedCompany.getId(), String.class);
         
 		Assert.assertTrue(response != null && response.hasBody() && !response.getBody().isEmpty());
-		System.out.println(response.getBody().toString());
     }
 }
