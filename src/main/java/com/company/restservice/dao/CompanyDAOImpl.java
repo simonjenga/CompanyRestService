@@ -45,9 +45,16 @@ public class CompanyDAOImpl extends GenericDAO implements CompanyDAO {
 
 	@Override
 	public Company getCompanyById(Long companyId) {
-		final Session session = this.getCurrentSession();		
+		final Session session = this.getCurrentSession();
 		Company company = (Company) getCurrentSession().get(Company.class, companyId);		
 		session.flush();
 		return company;
+	}
+	
+	@Override	
+	public void deleteCompany(Long companyId) {
+		final Session session = this.getCurrentSession();
+		session.delete(this.getCompanyById(companyId));
+		session.flush();
 	}
 }
