@@ -86,4 +86,29 @@ public class CompanyDAOImplTest {
 		Assert.assertEquals(this.company.getName(), this.savedCompany.getName());
 		Assert.assertTrue(this.savedCompany.getOwner().size() == 2);
 	}
+	
+	/**
+     * JUnit tests documentation to be implemented later!.
+     *  
+     * @throws Exception If some problem inside
+     */
+	@Test
+    @Rollback
+	public void testUpdateCompany() {
+		// save the company to database
+		this.savedCompany = this.companyDAO.saveCompany(this.company);
+		this.savedCompany.setName("Felicity");
+		this.savedCompany.setAddress("Salisbury");
+		this.savedCompany.setCity("Wiltshire");
+		this.savedCompany.setCountry("England");
+		this.savedCompany.setEmail("felicity@salisbury.com");
+		this.savedCompany.setPhoneNumber("+44-753-110-9524");
+		
+		Company updatedCompany = this.companyDAO.updateCompany(this.savedCompany);
+		
+		Assert.assertTrue(this.savedCompany.getId() != null);
+		Assert.assertNotEquals(updatedCompany.getName(), "Elizabeth");
+		Assert.assertEquals(updatedCompany.getName(), "Felicity");
+		Assert.assertTrue(updatedCompany.getEmail().equals("felicity@salisbury.com"));
+	}
 }
