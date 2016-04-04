@@ -171,4 +171,24 @@ public class CompanyDAOImplTest {
 		Assert.assertTrue(allOwners.get(2).getCompany().getAddress().equals("Salisbury"));
 		Assert.assertTrue(allOwners.get(2).getCompany().getPhoneNumber().equals("+44-753-110-9524"));		
 	}
+	
+	/**
+     * JUnit tests documentation to be implemented later!.
+     *  
+     * @throws Exception If some problem inside
+     */
+	@Test
+    @Rollback
+	public void testDeleteCompany() {
+		// save the company to database and then delete it immediately!
+		this.savedCompany = this.companyDAO.saveCompany(this.company);
+		this.companyDAO.deleteCompany(this.savedCompany.getId());
+		
+		Company deletedCompany = this.companyDAO.getCompanyById(this.savedCompany.getId());
+		
+		Assert.assertNull(deletedCompany);
+		Assert.assertTrue(deletedCompany == null);
+		Assert.assertFalse(deletedCompany != null);
+		Assert.assertEquals(deletedCompany, null);
+	}
 }
