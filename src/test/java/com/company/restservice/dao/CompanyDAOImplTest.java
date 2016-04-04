@@ -127,4 +127,48 @@ public class CompanyDAOImplTest {
 		
 		Assert.assertTrue(this.savedCompany.getId() != null && companiesList.size() != 0);
 	}
+	
+	/**
+     * JUnit tests documentation to be implemented later!.
+     *  
+     * @throws Exception If some problem inside
+     */
+	@Test
+    @Rollback
+	public void testUpdateCompanyWithNewOwner() {
+		// save the company to database
+		this.savedCompany = this.companyDAO.saveCompany(this.company);
+		this.savedCompany.setName("Felicity");
+		this.savedCompany.setAddress("Salisbury");
+		this.savedCompany.setCity("Wiltshire");
+		this.savedCompany.setCountry("England");
+		this.savedCompany.setEmail("felicity@salisbury.com");
+		this.savedCompany.setPhoneNumber("+44-753-110-9524");
+		
+		Owner ownerThree = new Owner();
+		ownerThree.setName("Owner Three");
+		
+		List<Owner> owners = new ArrayList<Owner>(1);
+		owners.add(ownerThree);	
+		
+		this.savedCompany.setOwner(owners);
+		ownerThree.setCompany(this.savedCompany);
+		
+		this.companyDAO.updateCompany(this.savedCompany);
+		
+		Company updatedCom = this.companyDAO.getCompanyById(this.savedCompany.getId());
+		
+		Assert.assertTrue(!this.savedCompany.getId().equals(null));
+		Assert.assertNotEquals(updatedCom.getName(), "Elizabeth");
+		Assert.assertEquals(updatedCom.getName(), "Felicity");
+		Assert.assertTrue(updatedCom.getEmail().equals("felicity@salisbury.com"));
+		
+		List<Owner> allOwners = updatedCom.getOwner();
+		
+		Assert.assertTrue(allOwners.size() == 3);
+		Assert.assertTrue(!allOwners.get(2).equals(null));
+		Assert.assertTrue(allOwners.get(2).getName().equals("Owner Three"));
+		Assert.assertTrue(allOwners.get(2).getCompany().getAddress().equals("Salisbury"));
+		Assert.assertTrue(allOwners.get(2).getCompany().getPhoneNumber().equals("+44-753-110-9524"));		
+	}
 }
