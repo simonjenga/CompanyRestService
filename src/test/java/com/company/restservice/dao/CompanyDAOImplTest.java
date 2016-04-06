@@ -3,6 +3,7 @@ package com.company.restservice.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -78,7 +79,7 @@ public class CompanyDAOImplTest {
      */
 	@Test
 	@Rollback
-	public void testAddCompany() {
+	public void testAddCompany() throws Exception {
 		// save the company to database
 		this.savedCompany = this.companyDAO.saveCompany(this.company);
 		
@@ -94,7 +95,7 @@ public class CompanyDAOImplTest {
      */
 	@Test
     @Rollback
-	public void testUpdateCompany() {
+	public void testUpdateCompany() throws Exception {
 		// save the company to database
 		this.savedCompany = this.companyDAO.saveCompany(this.company);
 		this.savedCompany.setName("Felicity");
@@ -119,7 +120,7 @@ public class CompanyDAOImplTest {
      */
 	@Test
     @Rollback
-	public void testCompaniesList() {
+	public void testCompaniesList() throws Exception {
 		// save the company to database
 		this.savedCompany = this.companyDAO.saveCompany(this.company);
 		
@@ -135,7 +136,7 @@ public class CompanyDAOImplTest {
      */
 	@Test
     @Rollback
-	public void testUpdateCompanyWithNewOwner() {
+	public void testUpdateCompanyWithNewOwner() throws Exception {
 		// save the company to database
 		this.savedCompany = this.companyDAO.saveCompany(this.company);
 		this.savedCompany.setName("Felicity");
@@ -179,7 +180,7 @@ public class CompanyDAOImplTest {
      */
 	@Test
     @Rollback
-	public void testDeleteCompany() {
+	public void testDeleteCompany() throws Exception {
 		// save the company to database and then delete it immediately!
 		this.savedCompany = this.companyDAO.saveCompany(this.company);
 		this.companyDAO.deleteCompany(this.savedCompany.getId());
@@ -191,4 +192,9 @@ public class CompanyDAOImplTest {
 		Assert.assertFalse(deletedCompany != null);
 		Assert.assertEquals(deletedCompany, null);
 	}
+	
+	@After
+    public void tearDown() throws Exception {
+        // Intentionally empty!
+    }
 }
