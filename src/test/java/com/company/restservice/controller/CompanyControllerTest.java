@@ -181,4 +181,9 @@ public class CompanyControllerTest {
 		    .andExpect(MockMvcResultMatchers.status().isOk())
 		    .andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
     }
+	
+	@After
+    public void tearDown() throws Exception {
+        // Intentionally empty!
+    }
 }
