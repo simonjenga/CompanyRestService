@@ -3,6 +3,7 @@ package com.company.restservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -10,21 +11,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.WebApplicationContext;
 
-import com.company.restservice.configuration.HibernateConfiguration;
 import com.company.restservice.dao.CompanyDAO;
 import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
@@ -32,43 +36,47 @@ import com.company.restservice.model.Owner;
 /**
  * Test case for {@link CompanyController}.
  * 
- * This test is disabled by default as it requires the web service to be deployed and be running
- * on the Server before this test can be executed.
- * 
- * Otherwise, it throws the following error message: 
- * I/O error on GET request for "http://localhost:8080/CompanyRestService/restservice/companies":Connection refused:
- * 
  * @author Simon Njenga
  * @since 0.1
  */
-@org.junit.Ignore
+@Rollback
 @WebAppConfiguration
-@RunWith(SpringJUnit4ClassRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(value = SpringJUnit4ClassRunner.class)
 @EnableTransactionManagement(proxyTargetClass = true)
+@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
-@ContextConfiguration(classes = { HibernateConfiguration.class }, loader = AnnotationConfigWebContextLoader.class)
 @Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
 public class CompanyControllerTest {
+	
+	/**
+	 * A String equivalent of {@link MediaType#APPLICATION_JSON_UTF8}.
+	 * 
+	 * Available on the latest version(4.2.5.RELEASE as of now) of Spring
+	 * @see https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/http/MediaType.java
+	 */
+	public final static String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
 
+	@Autowired
+    private WebApplicationContext wac;    
+    
 	@Autowired
 	private CompanyDAO companyDAO;
 	
-	private Company company;
+	private MockMvc mockMvc;
+	
+	private Company company, savedCompany;
 	private Owner ownerOne;
 	
-	private String baseURL;
-    private RestTemplate template;
-	
 	@Before
-	public void setup() {
+	public void setUp() throws Exception {
+		DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(this.wac);
+        this.mockMvc = builder.build();
+		
 		this.company = new Company();
 		this.ownerOne = new Owner();
 		
-		this.baseURL = "http://localhost:8080/CompanyRestService/restservice";
-        this.template = new RestTemplate();
-				
-        this.company.setName("Johnathan");
+		this.company.setName("Johnathan");
         this.company.setAddress("Chelsea");
         this.company.setCity("London");
         this.company.setCountry("England");
@@ -82,25 +90,10 @@ public class CompanyControllerTest {
 		
 		this.company.setOwner(owners);
 		this.ownerOne.setCompany(this.company);
-	}
-    
-    /**
-     * This test is for HTTP GET request for the web service. 
-     * 
-     * @throws Exception If some problem inside
-     */
-	@Test
-    @Rollback(true)
-    public void testGetCompanyList() {
+		
 		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
-		
-		Assert.assertTrue(savedCompany.getId() != null);
-		
-		ResponseEntity<String> response = this.template.getForEntity(this.baseURL + "/companies", String.class);
-        
-		Assert.assertTrue(response != null && response.hasBody() && !response.getBody().isEmpty());
-    }
+		this.savedCompany = this.companyDAO.saveCompany(this.company);
+	}
 	
 	/**
      * This test is for HTTP GET request for the web service. 
@@ -108,15 +101,16 @@ public class CompanyControllerTest {
      * @throws Exception If some problem inside
      */
 	@Test
-    @Rollback(true)
-    public void testGetCompany() {
-		// save the company to database
-		Company savedCompany = companyDAO.saveCompany(company);
+	@Rollback
+	public void testAddCompany() throws Exception {
+		Assert.assertTrue(this.savedCompany.getId() != null);
 		
-		Assert.assertTrue(savedCompany.getId() != null);
+		String theCompany = "{ \"name\": \"Felicity\", \"address\": \"Oxford\", \"city\" : \"London\", \"country\" : \"England\"," +
+            " \"email\" : \"felicity@oxford.com\", \"phoneNumber\" : \"+44-234-090\", \"owner\": [ { \"name\" : \"Blueish\" } ] }";
 		
-		ResponseEntity<String> response = this.template.getForEntity(this.baseURL + "/company/" + savedCompany.getId(), String.class);
-        
-		Assert.assertTrue(response != null && response.hasBody() && !response.getBody().isEmpty());
-    }
+		this.mockMvc.perform(MockMvcRequestBuilders.post("/company")
+	    	.contentType(APPLICATION_JSON_UTF8_VALUE).content(theCompany))
+	    	.andExpect(MockMvcResultMatchers.status().isCreated())
+	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+	}
 }
