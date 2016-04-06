@@ -113,4 +113,24 @@ public class CompanyControllerTest {
 	    	.andExpect(MockMvcResultMatchers.status().isCreated())
 	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
 	}
+	
+	/**
+     * This test is for HTTP GET request for the web service. 
+     * 
+     * @throws Exception If some problem inside
+     */
+	@Test
+	@Rollback
+	public void testUpdateCompany() throws Exception {		
+		Assert.assertTrue(this.savedCompany.getId() != null);
+		
+		String theCompany = "{ \"name\": \"Elizabeth\", \"address\": \"Salisbury\", \"city\" : \"London\", \"country\" : \"England\"," +
+            " \"email\" : \"elizabeth@salisbury.com\", \"phoneNumber\" : \"+44-786-086\"," +
+            " \"owner\": [ { \"id\" : \"1\", \"name\" : \"Reddish\" }, { \"id\" : \"2\", \"name\" : \"Greenish\" } ] }";
+		
+	    this.mockMvc.perform(MockMvcRequestBuilders.put("/company/{companyId}", this.savedCompany.getId())
+	    	.contentType(APPLICATION_JSON_UTF8_VALUE).content(theCompany))
+	    	.andExpect(MockMvcResultMatchers.status().isOk())
+	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+	}
 }
