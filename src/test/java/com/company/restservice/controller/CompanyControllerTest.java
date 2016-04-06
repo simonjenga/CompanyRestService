@@ -68,7 +68,32 @@ public class CompanyControllerTest {
 	private Company company, savedCompany;
 	private Owner ownerOne;
 	
-	
+	@Before
+	public void setUp() throws Exception {
+		DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(this.wac);
+        this.mockMvc = builder.build();
+		
+		this.company = new Company();
+		this.ownerOne = new Owner();
+		
+		this.company.setName("Johnathan");
+        this.company.setAddress("Chelsea");
+        this.company.setCity("London");
+        this.company.setCountry("England");
+        this.company.setEmail("johnathan@chelsea.sports");
+        this.company.setPhoneNumber("+44-867-023-9514");
+		
+        this.ownerOne.setName("Owner One");
+		
+		List<Owner> owners = new ArrayList<Owner>(1);
+		owners.add(this.ownerOne);
+		
+		this.company.setOwner(owners);
+		this.ownerOne.setCompany(this.company);
+		
+		// save the company to database
+		this.savedCompany = this.companyDAO.saveCompany(this.company);
+	}
 	
 	/**
      * This test is for HTTP GET request for the web service. 
