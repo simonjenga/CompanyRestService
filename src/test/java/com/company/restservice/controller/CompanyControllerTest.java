@@ -96,8 +96,8 @@ public class CompanyControllerTest {
 	}
 	
 	/**
-     * This test is for HTTP GET request for the web service. 
-     * 
+     * JUnit tests documentation to be implemented later!.
+     *  
      * @throws Exception If some problem inside
      */
 	@Test
@@ -115,8 +115,8 @@ public class CompanyControllerTest {
 	}
 	
 	/**
-     * This test is for HTTP GET request for the web service. 
-     * 
+     * JUnit tests documentation to be implemented later!.
+     *  
      * @throws Exception If some problem inside
      */
 	@Test
@@ -135,8 +135,8 @@ public class CompanyControllerTest {
 	}
 	
 	/**
-     * This test is for HTTP GET request for the web service. 
-     * 
+     * JUnit tests documentation to be implemented later!.
+     *  
      * @throws Exception If some problem inside
      */
 	@Test
@@ -151,8 +151,8 @@ public class CompanyControllerTest {
 	}
 	
 	/**
-     * This test is for HTTP GET request for the web service. 
-     * 
+     * JUnit tests documentation to be implemented later!.
+     *  
      * @throws Exception If some problem inside
      */
 	@Test
@@ -167,8 +167,8 @@ public class CompanyControllerTest {
     }
 	
 	/**
-     * This test is for HTTP GET request for the web service. 
-     * 
+     * JUnit tests documentation to be implemented later!.
+     *  
      * @throws Exception If some problem inside
      */
 	@Test
