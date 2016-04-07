@@ -90,8 +90,7 @@ public class CompanyController {
 		return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/companies", method = RequestMethod.GET)	
-    @ResponseBody
+	@RequestMapping(value = "/companies", method = RequestMethod.GET)
 	public ResponseEntity<List<Company>> getCompanyList() {
 		List<Company> companies = companyService.getCompanyList();
         if(companies.isEmpty()) {
