@@ -32,7 +32,6 @@ public class CompanyController {
 	private CompanyService companyService;
 	
 	@RequestMapping(value = "/company", method = RequestMethod.POST)
-	@ResponseBody
 	public ResponseEntity<Company> addCompany(@RequestBody Company company) {
 		int size = company.getOwner().size();
 		List<Owner> owners = new ArrayList<Owner>(size);        
