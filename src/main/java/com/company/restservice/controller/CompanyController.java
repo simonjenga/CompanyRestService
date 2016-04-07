@@ -7,12 +7,12 @@ import javax.annotation.Resource;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
@@ -25,7 +25,7 @@ import com.company.restservice.service.CompanyService;
  * @author Simon Njenga
  * @since 0.1
  */
-@Controller
+@RestController
 public class CompanyController {
 
 	@Resource
