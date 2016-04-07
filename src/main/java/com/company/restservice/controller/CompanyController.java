@@ -3,29 +3,33 @@ package com.company.restservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
 import com.company.restservice.service.CompanyService;
 
-@Controller
+/**
+ * This is the company controller class that is used to process HTTP requests and responses
+ * to the company RESTful service.
+ *
+ * @author Simon Njenga
+ * @since 0.1
+ */
+@RestController
 public class CompanyController {
 
-	@Resource
+	@Autowired
 	private CompanyService companyService;
 	
 	@RequestMapping(value = "/company", method = RequestMethod.POST)
-	@ResponseBody
 	public ResponseEntity<Company> addCompany(@RequestBody Company company) {
 		int size = company.getOwner().size();
 		List<Owner> owners = new ArrayList<Owner>(size);        
@@ -43,7 +47,6 @@ public class CompanyController {
 	}
 
 	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
-	@ResponseBody
 	public ResponseEntity<Company> updateCompany(@PathVariable("companyId") Long companyId, @RequestBody Company company) {
 		Company companyToUpdate = companyService.getCompanyById(companyId);
         if (companyToUpdate == null) {
@@ -67,7 +70,6 @@ public class CompanyController {
 	}
 	
 	@RequestMapping(value = "/companyowner/{companyId}", method = RequestMethod.PUT)
-	@ResponseBody
 	public ResponseEntity<Company> companyOwner(@PathVariable("companyId") Long companyId, @RequestBody Owner owner) {
 		Company companyToUpdate = companyService.getCompanyById(companyId);
         if (companyToUpdate == null) {
@@ -86,18 +88,16 @@ public class CompanyController {
 		return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/companies", method = RequestMethod.GET)	
-    @ResponseBody
+	@RequestMapping(value = "/companies", method = RequestMethod.GET)
 	public ResponseEntity<List<Company>> getCompanyList() {
 		List<Company> companies = companyService.getCompanyList();
-        if(companies.isEmpty()) {
+        if(companies == null || companies.isEmpty()) {
             return new ResponseEntity<List<Company>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<Company>>(companies, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.GET)
-	@ResponseBody
 	public ResponseEntity<Company> getCompany(@PathVariable("companyId") Long companyId) {
 		Company company = companyService.getCompanyById(companyId);
         if (company == null) {
