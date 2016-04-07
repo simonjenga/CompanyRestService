@@ -18,6 +18,13 @@ import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
 import com.company.restservice.service.CompanyService;
 
+/**
+ * This is the company controller class that is used to process HTTP requests and responses
+ * to the company RESTful service.
+ *
+ * @author Simon Njenga
+ * @since 0.1
+ */
 @Controller
 public class CompanyController {
 
