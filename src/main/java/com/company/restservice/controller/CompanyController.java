@@ -92,7 +92,7 @@ public class CompanyController {
 	@RequestMapping(value = "/companies", method = RequestMethod.GET)
 	public ResponseEntity<List<Company>> getCompanyList() {
 		List<Company> companies = companyService.getCompanyList();
-        if(companies.isEmpty()) {
+        if(companies == null || companies.isEmpty()) {
             return new ResponseEntity<List<Company>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<Company>>(companies, HttpStatus.OK);
