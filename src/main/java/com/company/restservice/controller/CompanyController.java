@@ -49,7 +49,6 @@ public class CompanyController {
 	}
 
 	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
-	@ResponseBody
 	public ResponseEntity<Company> updateCompany(@PathVariable("companyId") Long companyId, @RequestBody Company company) {
 		Company companyToUpdate = companyService.getCompanyById(companyId);
         if (companyToUpdate == null) {
