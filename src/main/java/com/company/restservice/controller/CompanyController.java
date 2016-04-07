@@ -3,8 +3,7 @@ package com.company.restservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,7 +26,7 @@ import com.company.restservice.service.CompanyService;
 @RestController
 public class CompanyController {
 
-	@Resource
+	@Autowired
 	private CompanyService companyService;
 	
 	@RequestMapping(value = "/company", method = RequestMethod.POST)
