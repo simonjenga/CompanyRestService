@@ -100,7 +100,6 @@ public class CompanyController {
 	}
 	
 	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.GET)
-	@ResponseBody
 	public ResponseEntity<Company> getCompany(@PathVariable("companyId") Long companyId) {
 		Company company = companyService.getCompanyById(companyId);
         if (company == null) {
