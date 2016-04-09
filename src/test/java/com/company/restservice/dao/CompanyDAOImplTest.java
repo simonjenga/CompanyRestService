@@ -18,8 +18,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.company.restservice.model.Company;
@@ -33,12 +31,12 @@ import com.company.restservice.model.Owner;
  */
 @Rollback
 @WebAppConfiguration
+@EnableTransactionManagement
+@RunWith(SpringJUnit4ClassRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(value = SpringJUnit4ClassRunner.class)
-@EnableTransactionManagement(proxyTargetClass = true)
+@Transactional(transactionManager = "transactionManager")
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-@TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
-@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
+@TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class)
 public class CompanyDAOImplTest {
 	
 	@Autowired
