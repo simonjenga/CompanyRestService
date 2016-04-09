@@ -24,8 +24,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -41,12 +39,12 @@ import com.company.restservice.model.Owner;
  */
 @Rollback
 @WebAppConfiguration
+@EnableTransactionManagement
+@RunWith(SpringJUnit4ClassRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-@RunWith(value = SpringJUnit4ClassRunner.class)
-@EnableTransactionManagement(proxyTargetClass = true)
+@Transactional(transactionManager = "transactionManager")
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-@TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class, inheritListeners = true)
-@Transactional(transactionManager = "transactionManager", propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
+@TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class)
 public class CompanyControllerTest {
 	
 	/**
