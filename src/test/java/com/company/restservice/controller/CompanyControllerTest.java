@@ -47,14 +47,6 @@ import com.company.restservice.model.Owner;
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class)
 public class CompanyControllerTest {
 	
-	/**
-	 * A String equivalent of {@link MediaType#APPLICATION_JSON_UTF8}.
-	 * 
-	 * Available on the latest version(4.2.5.RELEASE as of now) of Spring
-	 * @see https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/http/MediaType.java
-	 */
-	public final static String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
-
 	@Autowired
     private WebApplicationContext wac;    
     
