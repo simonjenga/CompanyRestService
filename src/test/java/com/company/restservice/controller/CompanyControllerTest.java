@@ -101,7 +101,7 @@ public class CompanyControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/company")
 	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
 	    	.andExpect(MockMvcResultMatchers.status().isCreated())
-	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+	    	.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 	}
 	
 	/**
@@ -121,7 +121,7 @@ public class CompanyControllerTest {
 	    this.mockMvc.perform(MockMvcRequestBuilders.put("/company/{companyId}", this.savedCompany.getId())
 	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
 	    	.andExpect(MockMvcResultMatchers.status().isOk())
-	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+	    	.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 	}
 	
 	/**
@@ -137,7 +137,7 @@ public class CompanyControllerTest {
 	    this.mockMvc.perform(MockMvcRequestBuilders.put("/companyowner/{companyId}", this.savedCompany.getId())
 	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content("{ \"name\": \"Brownish\" }"))
 	    	.andExpect(MockMvcResultMatchers.status().isOk())
-	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+	    	.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 	}
 	
 	/**
@@ -153,7 +153,7 @@ public class CompanyControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/companies")
     	    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
     	    .andExpect(MockMvcResultMatchers.status().isOk())
-    	    .andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));		
+    	    .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));		
     }
 	
 	/**
@@ -169,7 +169,7 @@ public class CompanyControllerTest {
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/company/{companyId}", this.savedCompany.getId())
 		    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
 		    .andExpect(MockMvcResultMatchers.status().isOk())
-		    .andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
+		    .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
 	
 	@After
