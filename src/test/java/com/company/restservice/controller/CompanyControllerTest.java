@@ -99,7 +99,7 @@ public class CompanyControllerTest {
             " \"email\" : \"felicity@oxford.com\", \"phoneNumber\" : \"+44-234-090\", \"owner\": [ { \"name\" : \"Blueish\" } ] }";
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.post("/company")
-	    	.contentType(APPLICATION_JSON_UTF8_VALUE).content(theCompany))
+	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
 	    	.andExpect(MockMvcResultMatchers.status().isCreated())
 	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
 	}
@@ -119,7 +119,7 @@ public class CompanyControllerTest {
             " \"owner\": [ { \"id\" : \"1\", \"name\" : \"Reddish\" }, { \"id\" : \"2\", \"name\" : \"Greenish\" } ] }";
 		
 	    this.mockMvc.perform(MockMvcRequestBuilders.put("/company/{companyId}", this.savedCompany.getId())
-	    	.contentType(APPLICATION_JSON_UTF8_VALUE).content(theCompany))
+	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
 	    	.andExpect(MockMvcResultMatchers.status().isOk())
 	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
 	}
@@ -135,7 +135,7 @@ public class CompanyControllerTest {
 		Assert.assertTrue(this.savedCompany.getId() != null);
 		
 	    this.mockMvc.perform(MockMvcRequestBuilders.put("/companyowner/{companyId}", this.savedCompany.getId())
-	    	.contentType(APPLICATION_JSON_UTF8_VALUE).content("{ \"name\": \"Brownish\" }"))
+	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content("{ \"name\": \"Brownish\" }"))
 	    	.andExpect(MockMvcResultMatchers.status().isOk())
 	    	.andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
 	}
@@ -151,7 +151,7 @@ public class CompanyControllerTest {
 		Assert.assertTrue(this.savedCompany.getId() != null);
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/companies")
-    	    .contentType(APPLICATION_JSON_UTF8_VALUE).content("{ }"))
+    	    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
     	    .andExpect(MockMvcResultMatchers.status().isOk())
     	    .andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));		
     }
@@ -167,7 +167,7 @@ public class CompanyControllerTest {
 		Assert.assertTrue(this.savedCompany.getId() != null);
 		
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/company/{companyId}", this.savedCompany.getId())
-		    .contentType(APPLICATION_JSON_UTF8_VALUE).content("{ }"))
+		    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
 		    .andExpect(MockMvcResultMatchers.status().isOk())
 		    .andExpect(MockMvcResultMatchers.content().contentType(APPLICATION_JSON_UTF8_VALUE));
     }
