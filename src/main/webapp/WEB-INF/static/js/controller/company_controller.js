@@ -2,10 +2,10 @@
 
 App.controller('CompanyController', ['$scope', 'CompanyService', function($scope, CompanyService) {
     var self = this;
-    self.company={id:null,name:'',address:'',city:'',country:'',email:'',phoneNumber:'',owner:''};
-    self.companies=[];
-    self.editowner={id:null,name:''};
-    self.newowner='';
+    self.company = { id:null, name:'', address:'', city:'', country:'', email:'', phoneNumber:'', owner:'' };
+    self.companies = [];
+    self.editowner = { id:null, name:'' };
+    self.newowner = '';
 
     self.fetchAllCompanies = function() {
         CompanyService.fetchAllCompanies()
@@ -45,8 +45,8 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             if(self.companies[i].id === id) {
                 self.company = angular.copy(self.companies[i]);
                 self.company.owner = '';
-				self.editowner.name = '';
-				self.editowner.id = '';                                          
+                self.editowner.name = '';
+                self.editowner.id = '';
                 break;
             }
         }
