@@ -66,23 +66,19 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             console.log('Saving New Company', self.company);
             // replace or remove special escape characters in the returned JSON
             var ownerInput = JSON.parse(angular.toJson([{ name: self.company.owner }], 1));
-            // alert(ownerInput);
             self.company.owner = ownerInput;
             self.createCompany(self.company);
         } else {
-        	if (self.editowner.id == '') { // adding a new company owner
-        		// alert('Company ID: ' + self.company.id + ' ,New Owner Name: ' + self.company.owner + ' ,New Owner ID: ' + self.editowner.id);
-        		var ownerName = angular.toJson({ name: self.company.owner }, 1);
-        		self.newowner = ownerName;
-				self.addOwner(self.company.id, self.newowner); 
-        	} else { // editing a company owner
-            	alert('Company ID: ' + self.company.id + ' ,Owner ID: ' + self.editowner.id + ' ,Name: ' + self.editowner.name);
-            	var ownerNameAndID = JSON.parse(angular.toJson([{ id: self.editowner.id, name: self.company.owner }], 1));
-            	alert(ownerNameAndID);
-            	self.company.owner = ownerNameAndID;
-            	self.updateCompany(self.company.id, self.company);
+            if (self.editowner.id == '') { // adding a new company owner
+                var ownerName = angular.toJson({ name: self.company.owner }, 1);
+                self.newowner = ownerName;
+                self.addOwner(self.company.id, self.newowner);
+            } else { // editing a company owner
+                var ownerNameAndID = JSON.parse(angular.toJson([{ id: self.editowner.id, name: self.company.owner }], 1));
+                self.company.owner = ownerNameAndID;
+                self.updateCompany(self.company.id, self.company);
                 console.log('Company updated with id ', self.company.id);
-        	}
+            }
         }
         self.reset();
     };
