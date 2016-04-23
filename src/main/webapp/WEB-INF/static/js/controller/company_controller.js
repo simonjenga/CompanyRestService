@@ -7,6 +7,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
     self.editowner = { id:null, name:'' };
     self.newowner = '';
 
+    // this function fetches all companies from the database back-end
     self.fetchAllCompanies = function() {
         CompanyService.fetchAllCompanies()
             .then(
@@ -19,6 +20,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             );
     };
 
+    // this function creates a new company
     self.createCompany = function(company) {
         CompanyService.createCompany(company)
             .then(
@@ -29,6 +31,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             );
     };
 
+    // this function updates a company
     self.updateCompany = function(id, company) {
     	CompanyService.updateCompany(id, company)
             .then(
@@ -39,6 +42,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             );
     };
     
+    // this function adds an owner to a company
     self.addOwner = function(id, newowner) {
     	//alert('Company ID: ' + id);
     	for(var i = 0; i < self.companies.length; i++) {
@@ -59,8 +63,10 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             );
     };
 
+    // makes a call to the fetchAllCompanies() function
     self.fetchAllCompanies();
 
+    // this function submits the form with the company details
     self.submit = function() {
         if(self.company.id == null) { // adding a new company
             console.log('Saving New Company', self.company);
@@ -83,6 +89,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
         self.reset();
     };
 
+    // this function edits a company
     self.edit = function(companyId, ownerId) {
         console.log('id to be edited', companyId);
         if (ownerId == undefined || ownerId == '') {
@@ -110,6 +117,7 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
         }
     };
 
+    // this function resets the form fields and clears the data
     self.reset = function() {
         self.company = { id:null, name:'', address:'', city:'', country:'', email:'', phoneNumber:'', owner:'' };
         $scope.myForm.$setPristine(); //reset Form
