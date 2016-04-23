@@ -86,24 +86,19 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
     self.edit = function(companyId, ownerId) {
         console.log('id to be edited', companyId);
         if (ownerId == undefined || ownerId == '') {
-            alert('Please select an Owner!');
+            //alert('Please select an Owner!');
             return;
         }
         for(var i = 0; i < self.companies.length; i++) {
             if(self.companies[i].id === companyId) {
                 self.company = angular.copy(self.companies[i]);
-                //alert(self.companies[i].owner[0].id + " " + self.companies[i].owner[0].name);
-                //alert(self.companies[i].owner.length);
                 if(self.companies[i].owner.length == 1) {
-                    alert("First Alert "+ ownerId);
-                    alert(self.companies[i].owner[0].id + ", " + self.companies[i].owner[0].name);
                     self.company.owner = self.companies[i].owner[0].name;
                     self.editowner.name = self.companies[i].owner[0].name;
                     self.editowner.id = self.companies[i].owner[0].id;
                 } else {
                     for(var x = 0; x < self.companies[i].owner.length; x++) {
                         if(self.companies[i].owner[x].id == ownerId) {
-                            alert(self.companies[i].owner[x].id + ", " + self.companies[i].owner[x].name);
                             self.company.owner = self.companies[i].owner[x].name;
                             self.editowner.name = self.companies[i].owner[x].name;
                             self.editowner.id = self.companies[i].owner[x].id;
@@ -114,9 +109,9 @@ App.controller('CompanyController', ['$scope', 'CompanyService', function($scope
             }
         }
     };
-    
+
     self.reset = function() {
-        self.company={id:null,name:'',address:'',city:'',country:'',email:'',phoneNumber:'',owner:''};
+        self.company = { id:null, name:'', address:'', city:'', country:'', email:'', phoneNumber:'', owner:'' };
         $scope.myForm.$setPristine(); //reset Form
     };
 }]);
