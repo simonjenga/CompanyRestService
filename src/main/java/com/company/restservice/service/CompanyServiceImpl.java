@@ -12,51 +12,51 @@ import com.company.restservice.model.Company;
 import com.company.restservice.model.Owner;
 
 /**
- * Documentation for this class will be done later!
- * 
+ * Service implementation class for {@link CompanyService}
+ *  
  * @author Simon Njenga
- * @since 0.1
+ * @version 0.1
  */
 @Service(value = "companyService")
 public class CompanyServiceImpl implements CompanyService {
 
-	@Autowired
-	private CompanyDAO companyDAO;
+    @Autowired
+    private CompanyDAO companyDAO;
 
-	@Override
-	@Transactional(readOnly = false)
-	public Company saveCompany(Company company) {
-		return companyDAO.saveCompany(company);
-	}
-	
-	@Override
-	@Transactional(readOnly = false)
-	public Company updateCompany(Company company, Company companyToUpdate) {
-		if (company == null) {
-			return companyDAO.updateCompany(companyToUpdate);
-		} else {
-			companyToUpdate.setId(companyToUpdate.getId());
-			companyToUpdate.setName(company.getName());
-			companyToUpdate.setCountry(company.getCountry());
-			companyToUpdate.setAddress(company.getAddress());
-			companyToUpdate.setCity(company.getCity());
-			companyToUpdate.setEmail(company.getEmail());
-			companyToUpdate.setPhoneNumber(company.getPhoneNumber());
-			companyToUpdate.setOwner(new ArrayList<Owner>());
-			companyToUpdate.setOwner(company.getOwner());
-			return companyDAO.updateCompany(companyToUpdate);
-		}
-	}
-	
-	@Override
-	@Transactional(readOnly = true)
-	public Company getCompanyById(Long companyId) {
-		return companyDAO.getCompanyById(companyId);
-	}
+    @Override
+    @Transactional(readOnly = false)
+    public Company saveCompany(Company company) {
+        return companyDAO.saveCompany(company);
+    }
 
-	@Override
-	@Transactional(readOnly = true)
-	public List<Company> getCompanyList() {
-		return companyDAO.getCompaniesList();
-	}
+    @Override
+    @Transactional(readOnly = false)
+    public Company updateCompany(Company company, Company companyToUpdate) {
+        if (company == null) {
+            return companyDAO.updateCompany(companyToUpdate);
+        } else {
+            companyToUpdate.setId(companyToUpdate.getId());
+            companyToUpdate.setName(company.getName());
+            companyToUpdate.setCountry(company.getCountry());
+            companyToUpdate.setAddress(company.getAddress());
+            companyToUpdate.setCity(company.getCity());
+            companyToUpdate.setEmail(company.getEmail());
+            companyToUpdate.setPhoneNumber(company.getPhoneNumber());
+            companyToUpdate.setOwner(new ArrayList<Owner>());
+            companyToUpdate.setOwner(company.getOwner());
+            return companyDAO.updateCompany(companyToUpdate);
+        }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Company getCompanyById(Long companyId) {
+        return companyDAO.getCompanyById(companyId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Company> getCompanyList() {
+        return companyDAO.getCompaniesList();
+    }
 }
