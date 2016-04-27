@@ -26,83 +26,83 @@ import com.company.restservice.service.CompanyService;
 @RestController
 public class CompanyController {
 
-	@Autowired
-	private CompanyService companyService;
-	
-	@RequestMapping(value = "/company", method = RequestMethod.POST)
-	public ResponseEntity<Company> addCompany(@RequestBody Company company) {
-		int size = company.getOwner().size();
-		List<Owner> owners = new ArrayList<Owner>(size);        
-        for (int i = 0; i < size; i++) {
-        	Owner owner =  new Owner();
-        	owner.setCompany(company);
-        	owner.setName(company.getOwner().get(i).getName());
-        	owners.add(owner);
-		}
-		
-		company.setOwner(owners);
-		Company newCompany = companyService.saveCompany(company);
-		
-		return new ResponseEntity<Company>(newCompany, HttpStatus.CREATED);
-	}
+    @Autowired
+    private CompanyService companyService;
 
-	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
-	public ResponseEntity<Company> updateCompany(@PathVariable("companyId") Long companyId, @RequestBody Company company) {
-		Company companyToUpdate = companyService.getCompanyById(companyId);
+    @RequestMapping(value = "/company", method = RequestMethod.POST)
+    public ResponseEntity<Company> addCompany(@RequestBody Company company) {
+        int size = company.getOwner().size();
+        List<Owner> owners = new ArrayList<Owner>(size);        
+        for (int i = 0; i < size; i++) {
+            Owner owner =  new Owner();
+            owner.setCompany(company);
+            owner.setName(company.getOwner().get(i).getName());
+            owners.add(owner);
+        }
+
+        company.setOwner(owners);
+        Company newCompany = companyService.saveCompany(company);
+
+        return new ResponseEntity<Company>(newCompany, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/company/{companyId}", method = RequestMethod.PUT)
+    public ResponseEntity<Company> updateCompany(@PathVariable("companyId") Long companyId, @RequestBody Company company) {
+        Company companyToUpdate = companyService.getCompanyById(companyId);
         if (companyToUpdate == null) {
             return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
         }
-        
+
         int size = company.getOwner().size();
         List<Owner> owners = new ArrayList<Owner>(size);      
         for (int i = 0; i < size; i++) {
-        	Owner owner =  new Owner();
-        	owner.setId(company.getOwner().get(i).getId());
-        	owner.setCompany(companyToUpdate);
-        	owner.setName(company.getOwner().get(i).getName());
-        	owners.add(owner);
-		}
-		
-		company.setOwner(owners);		
-		Company updatedCompany = companyService.updateCompany(company, companyToUpdate);		
-			
-		return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/companyowner/{companyId}", method = RequestMethod.PUT)
-	public ResponseEntity<Company> companyOwner(@PathVariable("companyId") Long companyId, @RequestBody Owner owner) {
-		Company companyToUpdate = companyService.getCompanyById(companyId);
+            Owner owner =  new Owner();
+            owner.setId(company.getOwner().get(i).getId());
+            owner.setCompany(companyToUpdate);
+            owner.setName(company.getOwner().get(i).getName());
+            owners.add(owner);
+        }
+
+        company.setOwner(owners);		
+        Company updatedCompany = companyService.updateCompany(company, companyToUpdate);		
+
+        return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/companyowner/{companyId}", method = RequestMethod.PUT)
+    public ResponseEntity<Company> companyOwner(@PathVariable("companyId") Long companyId, @RequestBody Owner owner) {
+        Company companyToUpdate = companyService.getCompanyById(companyId);
         if (companyToUpdate == null) {
             return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
         }
-        
+
         List<Owner> owners = new ArrayList<Owner>(1);
         Owner newOwner =  new Owner();
         newOwner.setCompany(companyToUpdate);
         newOwner.setName(owner.getName());
         owners.add(newOwner);
-		
+
         companyToUpdate.setOwner(owners);		
-		Company updatedCompany = companyService.updateCompany(null, companyToUpdate);		
-			
-		return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/companies", method = RequestMethod.GET)
-	public ResponseEntity<List<Company>> getCompanyList() {
-		List<Company> companies = companyService.getCompanyList();
+        Company updatedCompany = companyService.updateCompany(null, companyToUpdate);		
+
+        return new ResponseEntity<Company>(updatedCompany, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/companies", method = RequestMethod.GET)
+    public ResponseEntity<List<Company>> getCompanyList() {
+        List<Company> companies = companyService.getCompanyList();
         if(companies == null || companies.isEmpty()) {
             return new ResponseEntity<List<Company>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<Company>>(companies, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/company/{companyId}", method = RequestMethod.GET)
-	public ResponseEntity<Company> getCompany(@PathVariable("companyId") Long companyId) {
-		Company company = companyService.getCompanyById(companyId);
+    }
+
+    @RequestMapping(value = "/company/{companyId}", method = RequestMethod.GET)
+    public ResponseEntity<Company> getCompany(@PathVariable("companyId") Long companyId) {
+        Company company = companyService.getCompanyById(companyId);
         if (company == null) {
             return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Company>(company, HttpStatus.OK);
-	}	
+    }
 }
