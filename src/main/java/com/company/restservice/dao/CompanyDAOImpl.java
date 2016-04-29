@@ -9,52 +9,52 @@ import org.springframework.transaction.annotation.Transactional;
 import com.company.restservice.model.Company;
 
 /**
- * Documentation for this class will be done later!
- * 
+ * Data Access Object (DAO) implementation class for {@link CompanyDAO}
+ *  
  * @author Simon Njenga
- * @since 0.1
+ * @version 0.1
  */
 @Transactional
 @Repository(value = "companyDAO")
 public class CompanyDAOImpl extends GenericDAO implements CompanyDAO {
 
-	@Override
-	public Company saveCompany(Company company) {
-		final Session session = this.getCurrentSession();		
-		session.save(company);				
-		session.flush();
-		return company;
-	}
-	
-	@Override
-	public Company updateCompany(Company company) {
-		final Session session = this.getCurrentSession();		
-		session.update(company);						
-		session.flush();
-		return company;
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Company> getCompaniesList() {
-		final Session session = this.getCurrentSession();		
-		List<Company> companies = session.createQuery("from Company").list();		
-		session.flush();
-		return companies;
-	}
+    @Override
+    public Company saveCompany(Company company) {
+        final Session session = this.getCurrentSession();
+        session.save(company);
+        session.flush();
+        return company;
+    }
 
-	@Override
-	public Company getCompanyById(Long companyId) {
-		final Session session = this.getCurrentSession();
-		Company company = (Company) getCurrentSession().get(Company.class, companyId);		
-		session.flush();
-		return company;
-	}
-	
-	@Override	
-	public void deleteCompany(Long companyId) {
-		final Session session = this.getCurrentSession();
-		session.delete(this.getCompanyById(companyId));
-		session.flush();
-	}
+    @Override
+    public Company updateCompany(Company company) {
+        final Session session = this.getCurrentSession();
+        session.update(company);
+        session.flush();
+        return company;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Company> getCompaniesList() {
+        final Session session = this.getCurrentSession();
+        List<Company> companies = session.createQuery("from Company").list();
+        session.flush();
+        return companies;
+    }
+
+    @Override
+    public Company getCompanyById(Long companyId) {
+        final Session session = this.getCurrentSession();
+        Company company = (Company) getCurrentSession().get(Company.class, companyId);
+        session.flush();
+        return company;
+    }
+
+    @Override
+    public void deleteCompany(Long companyId) {
+        final Session session = this.getCurrentSession();
+        session.delete(this.getCompanyById(companyId));
+        session.flush();
+    }
 }
