@@ -17,7 +17,8 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
  
 /**
- * Documentation for this class will be done later!
+ * This class file is the Java Spring Configuration for Hibernate 4. It contains configuration settings
+ * for a Java Spring web application that uses Java code configuration instead of XML code configuration.
  * 
  * @author Simon Njenga
  * @since 0.1
