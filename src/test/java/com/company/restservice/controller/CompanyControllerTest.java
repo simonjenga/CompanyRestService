@@ -46,63 +46,63 @@ import com.company.restservice.model.Owner;
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class)
 public class CompanyControllerTest {
-	
-	@Autowired
-    private WebApplicationContext wac;    
-    
-	@Autowired
-	private CompanyDAO companyDAO;
-	
-	private MockMvc mockMvc;
-	
-	private Company company, savedCompany;
-	private Owner ownerOne;
-	
-	@Before
-	public void setUp() throws Exception {
-		DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(this.wac);
+
+    @Autowired
+    private WebApplicationContext wac;
+
+    @Autowired
+    private CompanyDAO companyDAO;
+
+    private MockMvc mockMvc;
+
+    private Company company, savedCompany;
+    private Owner ownerOne;
+
+    @Before
+    public void setUp() throws Exception {
+        DefaultMockMvcBuilder builder = MockMvcBuilders.webAppContextSetup(this.wac);
         this.mockMvc = builder.build();
-		
-		this.company = new Company();
-		this.ownerOne = new Owner();
-		
-		this.company.setName("Johnathan");
+
+        this.company = new Company();
+        this.ownerOne = new Owner();
+
+        this.company.setName("Johnathan");
         this.company.setAddress("Chelsea");
         this.company.setCity("London");
         this.company.setCountry("England");
         this.company.setEmail("johnathan@chelsea.sports");
         this.company.setPhoneNumber("+44-867-023-9514");
-		
+
         this.ownerOne.setName("Owner One");
-		
-		List<Owner> owners = new ArrayList<Owner>(1);
-		owners.add(this.ownerOne);
-		
-		this.company.setOwner(owners);
-		this.ownerOne.setCompany(this.company);
-		
-		// save the company to database
-		this.savedCompany = this.companyDAO.saveCompany(this.company);
-	}
-	
-	/**
+
+        List<Owner> owners = new ArrayList<Owner>(1);
+        owners.add(this.ownerOne);
+
+        this.company.setOwner(owners);
+        this.ownerOne.setCompany(this.company);
+
+        // save the company to database
+        this.savedCompany = this.companyDAO.saveCompany(this.company);
+    }
+
+    /**
      * JUnit tests documentation to be implemented later!.
      *  
      * @throws Exception If some problem inside
      */
-	@Test
-	@Rollback
-	public void testAddCompany() throws Exception {
-		Assert.assertTrue(this.savedCompany.getId() != null);
-		
-		String theCompany = "{ \"name\": \"Felicity\", \"address\": \"Oxford\", \"city\" : \"London\", \"country\" : \"England\"," +
+    @Test
+    @Rollback
+    public void testAddCompany() throws Exception {
+        Assert.assertTrue(this.savedCompany.getId() != null);
+
+        String theCompany = "{ \"name\": \"Felicity\", \"address\": \"Oxford\", \"city\" : \"London\", \"country\" : \"England\"," +
             " \"email\" : \"felicity@oxford.com\", \"phoneNumber\" : \"+44-234-090\", \"owner\": [ { \"name\" : \"Blueish\" } ] }";
-		
-		this.mockMvc.perform(MockMvcRequestBuilders.post("/company")
-	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
-	    	.andExpect(MockMvcResultMatchers.status().isCreated())
-	    	.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
-	}
+
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/company")
+            .contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
+            .andExpect(MockMvcResultMatchers.status().isCreated())
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+    }
 	
 	/**
      * JUnit tests documentation to be implemented later!.
