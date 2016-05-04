@@ -104,25 +104,25 @@ public class CompanyControllerTest {
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
 	
-	/**
+    /**
      * JUnit tests documentation to be implemented later!.
-     *  
+     *
      * @throws Exception If some problem inside
      */
-	@Test
-	@Rollback
-	public void testUpdateCompany() throws Exception {		
-		Assert.assertTrue(this.savedCompany.getId() != null);
-		
-		String theCompany = "{ \"name\": \"Elizabeth\", \"address\": \"Salisbury\", \"city\" : \"London\", \"country\" : \"England\"," +
+    @Test
+    @Rollback
+    public void testUpdateCompany() throws Exception {
+        Assert.assertTrue(this.savedCompany.getId() != null);
+
+        String theCompany = "{ \"name\": \"Elizabeth\", \"address\": \"Salisbury\", \"city\" : \"London\", \"country\" : \"England\"," +
             " \"email\" : \"elizabeth@salisbury.com\", \"phoneNumber\" : \"+44-786-086\"," +
             " \"owner\": [ { \"id\" : \"1\", \"name\" : \"Reddish\" }, { \"id\" : \"2\", \"name\" : \"Greenish\" } ] }";
-		
-	    this.mockMvc.perform(MockMvcRequestBuilders.put("/company/{companyId}", this.savedCompany.getId())
-	    	.contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
-	    	.andExpect(MockMvcResultMatchers.status().isOk())
-	    	.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
-	}
+
+        this.mockMvc.perform(MockMvcRequestBuilders.put("/company/{companyId}", this.savedCompany.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8).content(theCompany))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+    }
 	
 	/**
      * JUnit tests documentation to be implemented later!.
