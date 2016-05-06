@@ -139,21 +139,21 @@ public class CompanyControllerTest {
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
-	
-	/**
+
+    /**
      * JUnit tests documentation to be implemented later!.
-     *  
+     *
      * @throws Exception If some problem inside
      */
-	@Test
+    @Test
     @Rollback
     public void testGetCompanyList() throws Exception {
-		Assert.assertTrue(this.savedCompany.getId() != null);
-		
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/companies")
-    	    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
-    	    .andExpect(MockMvcResultMatchers.status().isOk())
-    	    .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));		
+        Assert.assertTrue(this.savedCompany.getId() != null);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/companies")
+            .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
 	
 	/**
