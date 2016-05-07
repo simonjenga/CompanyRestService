@@ -155,24 +155,24 @@ public class CompanyControllerTest {
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
-	
-	/**
+
+    /**
      * JUnit tests documentation to be implemented later!.
-     *  
+     *
      * @throws Exception If some problem inside
      */
-	@Test
+    @Test
     @Rollback
     public void testGetCompany() throws Exception {
-		Assert.assertTrue(this.savedCompany.getId() != null);
-		
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/company/{companyId}", this.savedCompany.getId())
-		    .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
-		    .andExpect(MockMvcResultMatchers.status().isOk())
-		    .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        Assert.assertTrue(this.savedCompany.getId() != null);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/company/{companyId}", this.savedCompany.getId())
+            .contentType(MediaType.APPLICATION_JSON_UTF8).content("{ }"))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
     }
-	
-	@After
+
+    @After
     public void tearDown() throws Exception {
         // Intentionally empty!
     }
