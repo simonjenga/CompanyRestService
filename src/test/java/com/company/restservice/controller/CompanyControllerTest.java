@@ -86,7 +86,7 @@ public class CompanyControllerTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testAddCompany.
      *  
      * @throws Exception If some problem inside
      */
@@ -105,7 +105,7 @@ public class CompanyControllerTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testUpdateCompany.
      *
      * @throws Exception If some problem inside
      */
@@ -125,7 +125,7 @@ public class CompanyControllerTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testCompanyOwner.
      * 
      * @throws Exception If some problem inside
      */
@@ -141,7 +141,7 @@ public class CompanyControllerTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testGetCompanyList.
      *
      * @throws Exception If some problem inside
      */
@@ -157,7 +157,7 @@ public class CompanyControllerTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testGetCompany.
      *
      * @throws Exception If some problem inside
      */
