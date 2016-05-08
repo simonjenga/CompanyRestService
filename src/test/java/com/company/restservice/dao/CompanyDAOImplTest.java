@@ -38,37 +38,37 @@ import com.company.restservice.model.Owner;
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 @TestExecutionListeners(value = DependencyInjectionTestExecutionListener.class)
 public class CompanyDAOImplTest {
-	
-	@Autowired
-	private CompanyDAO companyDAO;
-	
-	private Company company, savedCompany;
-	private Owner ownerOne, ownerTwo;
-	
-	@Before
-	public void setUp() throws Exception {
-		this.company = new Company();
-		this.ownerOne = new Owner();
-		this.ownerTwo = new Owner();
-				
-		this.company.setName("Elizabeth");
-		this.company.setAddress("Oxford");
-		this.company.setCity("London");
-		this.company.setCountry("England");
-		this.company.setEmail("elizabeth@kingsway.edu");
-		this.company.setPhoneNumber("+44-756-093-2218");
-		
-		this.ownerOne.setName("Owner One");
-		this.ownerTwo.setName("Owner Two");
-		
-		List<Owner> owners = new ArrayList<Owner>(2);
-		owners.add(this.ownerOne);
-		owners.add(this.ownerTwo);		
-		
-		this.company.setOwner(owners);
-		this.ownerOne.setCompany(this.company);
-		this.ownerTwo.setCompany(this.company);
-	}
+
+    @Autowired
+    private CompanyDAO companyDAO;
+
+    private Company company, savedCompany;
+    private Owner ownerOne, ownerTwo;
+
+    @Before
+    public void setUp() throws Exception {
+        this.company = new Company();
+        this.ownerOne = new Owner();
+        this.ownerTwo = new Owner();
+
+        this.company.setName("Elizabeth");
+        this.company.setAddress("Oxford");
+        this.company.setCity("London");
+        this.company.setCountry("England");
+        this.company.setEmail("elizabeth@kingsway.edu");
+        this.company.setPhoneNumber("+44-756-093-2218");
+
+        this.ownerOne.setName("Owner One");
+        this.ownerTwo.setName("Owner Two");
+
+        List<Owner> owners = new ArrayList<Owner>(2);
+        owners.add(this.ownerOne);
+        owners.add(this.ownerTwo);
+
+        this.company.setOwner(owners);
+        this.ownerOne.setCompany(this.company);
+        this.ownerTwo.setCompany(this.company);
+    }
 	
 	/**
      * JUnit tests documentation to be implemented later!.
