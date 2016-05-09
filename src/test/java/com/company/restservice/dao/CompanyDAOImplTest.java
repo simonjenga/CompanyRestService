@@ -69,22 +69,22 @@ public class CompanyDAOImplTest {
         this.ownerOne.setCompany(this.company);
         this.ownerTwo.setCompany(this.company);
     }
-	
-	/**
+
+    /**
      * JUnit tests documentation to be implemented later!.
-     *  
+     * 
      * @throws Exception If some problem inside
      */
-	@Test
-	@Rollback
-	public void testAddCompany() throws Exception {
-		// save the company to database
-		this.savedCompany = this.companyDAO.saveCompany(this.company);
-		
-		Assert.assertTrue(this.savedCompany.getId() != null);
-		Assert.assertEquals(this.company.getName(), this.savedCompany.getName());
-		Assert.assertTrue(this.savedCompany.getOwner().size() == 2);
-	}
+    @Test
+    @Rollback
+    public void testAddCompany() throws Exception {
+        // save the company to database
+        this.savedCompany = this.companyDAO.saveCompany(this.company);
+
+        Assert.assertTrue(this.savedCompany.getId() != null);
+        Assert.assertEquals(this.company.getName(), this.savedCompany.getName());
+        Assert.assertTrue(this.savedCompany.getOwner().size() == 2);
+    }
 	
 	/**
      * JUnit tests documentation to be implemented later!.
