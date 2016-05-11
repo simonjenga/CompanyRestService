@@ -110,22 +110,22 @@ public class CompanyDAOImplTest {
         Assert.assertEquals(updatedCompany.getName(), "Felicity");
         Assert.assertTrue(updatedCompany.getEmail().equals("felicity@salisbury.com"));
     }
-	
-	/**
+
+    /**
      * JUnit tests documentation to be implemented later!.
-     *  
+     * 
      * @throws Exception If some problem inside
      */
-	@Test
+    @Test
     @Rollback
-	public void testCompaniesList() throws Exception {
-		// save the company to database
-		this.savedCompany = this.companyDAO.saveCompany(this.company);
-		
-		List<Company> companiesList = this.companyDAO.getCompaniesList();
-		
-		Assert.assertTrue(this.savedCompany.getId() != null && companiesList.size() != 0);
-	}
+    public void testCompaniesList() throws Exception {
+        // save the company to database
+        this.savedCompany = this.companyDAO.saveCompany(this.company);
+
+        List<Company> companiesList = this.companyDAO.getCompaniesList();
+
+        Assert.assertTrue(this.savedCompany.getId() != null && companiesList.size() != 0);
+    }
 	
 	/**
      * JUnit tests documentation to be implemented later!.
