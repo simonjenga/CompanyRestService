@@ -71,7 +71,7 @@ public class CompanyDAOImplTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testAddCompany.
      * 
      * @throws Exception If some problem inside
      */
@@ -87,7 +87,7 @@ public class CompanyDAOImplTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testUpdateCompany.
      * 
      * @throws Exception If some problem inside
      */
@@ -112,7 +112,7 @@ public class CompanyDAOImplTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testCompaniesList.
      * 
      * @throws Exception If some problem inside
      */
@@ -128,7 +128,7 @@ public class CompanyDAOImplTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testUpdateCompanyWithNewOwner.
      * 
      * @throws Exception If some problem inside
      */
@@ -172,7 +172,7 @@ public class CompanyDAOImplTest {
     }
 
     /**
-     * JUnit tests documentation to be implemented later!.
+     * This test should testDeleteCompany.
      * 
      * @throws Exception If some problem inside
      */
@@ -190,8 +190,8 @@ public class CompanyDAOImplTest {
         Assert.assertFalse(deletedCompany != null);
         Assert.assertEquals(deletedCompany, null);
     }
-	
-	@After
+
+    @After
     public void tearDown() throws Exception {
         // Intentionally empty!
     }
