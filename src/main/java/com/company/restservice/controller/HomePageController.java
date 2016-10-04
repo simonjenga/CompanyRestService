@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomePageController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)  
+    @RequestMapping(value = "/homePage.htm", method = RequestMethod.GET)  
     public ModelAndView getHomePage() {
-        return new ModelAndView("CompanyManagement");
+        return new ModelAndView("/companyManagement");
     }
 }
