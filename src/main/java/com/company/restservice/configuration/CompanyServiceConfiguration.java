@@ -2,7 +2,6 @@ package com.company.restservice.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -20,7 +19,7 @@ import org.springframework.web.servlet.view.JstlView;
  * of bean definitions. It helps to enable the Spring MVC @Controller programming model.
  *
  * The {@code DispatcherServlet} context defines this servlet's request-processing infrastructure. Please visit
- * here {@link #DispatcherServlet(WebApplicationContext)}, {@link #FrameworkServlet(WebApplicationContext)} for
+ * here {@code #DispatcherServlet(WebApplicationContext)}, {@code #FrameworkServlet(WebApplicationContext)} for
  * more details.
  *
  * http://docs.spring.io/autorepo/docs/spring/3.2.x/spring-framework-reference/html/mvc.html
