@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
  * This class extends {@code WebMvcConfigurerAdapter}, which provides empty methods that can be overridden to
@@ -49,6 +50,7 @@ public class CompanyServiceConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // Java configuration for 'welcome-file-list' found in web.xml
-        registry.addViewController("/").setViewName("forward:/jsp/index.jsp");
+        String prefix = UrlBasedViewResolver.FORWARD_URL_PREFIX;
+        registry.addViewController("/").setViewName(prefix.concat("/jsp/index.jsp"));
     }
 }
