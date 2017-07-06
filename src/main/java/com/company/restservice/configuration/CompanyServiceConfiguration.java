@@ -16,8 +16,8 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * provide customize default configuration of Spring MVC. The @EnableWebMvc annotation enables Spring MVC
  * configuration to be done explicitly through Java code.
  * 
- * The @Configuration annotation indicates that the class can be used by the Spring IoC container as a source
- * of bean definitions. It helps to enable the Spring MVC @Controller programming model.
+ * The {@code Configuration} annotation indicates that the class can be used by the Spring IoC container as a source
+ * of bean definitions. It helps to enable the Spring MVC {@code Controller} programming model.
  *
  * The {@code DispatcherServlet} context defines this servlet's request-processing infrastructure. Please visit
  * here {@code #DispatcherServlet(WebApplicationContext)}, {@code #FrameworkServlet(WebApplicationContext)} for
