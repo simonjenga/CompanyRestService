@@ -190,7 +190,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.18</version>
+            <version>5.1.40</version>
         </dependency>
 
         <!-- HSQLDB (Hyper SQL Database) -->
@@ -277,7 +277,7 @@
         <finalName>${project.artifactId}</finalName>
         <pluginManagement>
             <plugins>
-                <plugin>
+			    <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>2.10</version>
