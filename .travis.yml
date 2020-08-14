@@ -1,19 +1,21 @@
 # language
 language: java
-sudo: false
 
-# operating system and dist choices 'xenial', 'trusty' or 'precise'
-os: linux
-  dist: xenial
+# operating system
+os:
+  - linux
+
+# dist choices 'xenial', 'trusty' or 'precise'
+dist: xenial
 
 # use JDK 8; openjdk8 or oraclejdk8
 jdk:
   - openjdk8
-  
+
 # cache the build tool's caches
 cache:
   directories:
-  - $HOME/.m2
+    - $HOME/.m2
 
 # environment configurations
 env:
@@ -23,7 +25,7 @@ env:
 
 # build script
 script:
-  - mvn clean package
+  - mvn clean package --errors --quiet
 
 # notifications
 notifications:
