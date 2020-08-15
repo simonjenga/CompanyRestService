@@ -1,30 +1,30 @@
-### language ###
+# language
 language: java
 sudo: false
 
-### operating system and dist choices 'xenial', 'trusty' or 'precise' ###
+# operating system and dist choices 'xenial', 'trusty' or 'precise'
 os: linux
   dist: xenial
 
-### use JDK 8; openjdk8 or oraclejdk8 ###
+# use JDK 8; openjdk8 or oraclejdk8
 jdk:
   - openjdk8
   
-### cache the build tool's caches ###
+# cache the build tool's caches
 cache:
   directories:
   - $HOME/.m2
 
-### environment configurations ###
+# environment configurations
 env:
   global:
     - MAVEN_OPTS="-Xmx256m -Dfile.encoding=UTF-8"
     - JAVA_OPTS="-Xmx256m -Dfile.encoding=UTF-8"
 
-### build script ###
+# build script
 script:
   - mvn clean package
 
-### notifications ###
+# notifications
 notifications:
   email: true
