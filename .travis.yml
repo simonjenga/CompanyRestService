@@ -2,9 +2,9 @@
 language: java
 sudo: false
 
-### operating system ###
+### operating system and dist choices 'xenial', 'trusty' or 'precise' ###
 os: linux
-  dist: xenial # other choices are 'trusty' or 'precise'
+  dist: xenial
 
 ### use JDK 8; openjdk8 or oraclejdk8 ###
 jdk:
