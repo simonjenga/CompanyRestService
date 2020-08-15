@@ -3,7 +3,8 @@ language: java
 sudo: false
 
 ### operating system ###
-os: windows
+os: linux
+  dist: xenial # other choices are 'trusty' or 'precise'
 
 ### use JDK 8; openjdk8 or oraclejdk8 ###
 jdk:
