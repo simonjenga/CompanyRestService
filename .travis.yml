@@ -1,0 +1,29 @@
+### language ###
+language: java
+sudo: false
+
+### operating system ###
+os: windows
+
+### use JDK 8; openjdk8 or oraclejdk8 ###
+jdk:
+  - openjdk8
+  
+### cache the build tool's caches ###
+cache:
+  directories:
+  - $HOME/.m2
+
+### environment configurations ###
+env:
+  global:
+    - MAVEN_OPTS="-Xmx256m -Dfile.encoding=UTF-8"
+    - JAVA_OPTS="-Xmx256m -Dfile.encoding=UTF-8"
+
+### build script ###
+script:
+  - mvn clean package
+
+### notifications ###
+notifications:
+  email: true
